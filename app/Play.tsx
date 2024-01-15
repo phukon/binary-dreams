@@ -1,11 +1,13 @@
-import Section from "@/components/Section";
 import Header from "@/components/Header";
+import Section from "@/components/Section";
 
-export default function Home() {
+const Play = () => {
   return (
     <>
       <Header />
       <Section />
     </>
   );
-}
+};
+
+export default Play;

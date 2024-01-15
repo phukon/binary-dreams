@@ -1,10 +1,19 @@
 "use client";
 
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Header = () => {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
+
+  // to stop scroll when header menu is open
+  useEffect(() => {
+    if (!isActive) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+  }, [isActive]);
 
   return (
     <div className="container px-4 mx-auto pt-4">
