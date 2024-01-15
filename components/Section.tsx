@@ -5,13 +5,12 @@ const Section = () => {
   return (
     <section className="pt-6 pb-12">
       <div className="container px-4 mx-auto">
-        <div className="pr-2 w-full">
+        <div className="pr-2 sm:max-w-[1100px]">
           <div className="border border-white bg-white mt-2 ml-2 w-full h-full">
             <div className="border-2 border-black bg-white mr-2 -ml-2 mb-2 -mt-2">
-              <div className="dotted-pattern-bg flex flex-col md:flex-row justify-between">
-                <div className="flex justify-end">
-                  <Image src={satDish} height={500} width={500} alt="satDish" />
-                </div>
+              <div className="dotted-pattern-bg flex flex-col md:flex-row justify-between dotted-div">
+                <Image src={satDish} height={500} width={500} alt="satDish" />
+
                 <div className="flex flex-col justify-between">
                   <h1 className="font-serif tracking-[-2.5px] text-6xl p-4 mt-10 font-extrabold">
                     dreams from the future
