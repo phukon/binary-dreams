@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { useState } from "react";
 
@@ -22,17 +24,30 @@ const Header = () => {
               <ul className="container px-4 md:px-0 mx-auto flex flex-1 flex-col min-h-full md:flex-row md:gap-x-8 md:items-center relative">
                 <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
                   <p className="text-5xl font-bold md:text-base">
-                    <a className="tracking-[-2px] md:tracking-[-1px]">phukon</a>
+                    <a
+                      href="https://github.com/phukon"
+                      className="tracking-[-2px] md:tracking-[-1px]"
+                    >
+                      phukon
+                    </a>
                   </p>
                 </li>
                 <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
                   <p className="text-5xl font-bold md:text-base">
-                    <a className="tracking-[-2px] md:tracking-[-1px]">github</a>
+                    <a
+                      href="https://github.com/phukon"
+                      className="tracking-[-2px] md:tracking-[-1px]"
+                    >
+                      github
+                    </a>
                   </p>
                 </li>
                 <li className="my-3 absolute md:relative bottom-4 md:bottom-0 left-4 md:left-0 right-4 md:right-0">
                   <p className="text-5xl font-bold md:text-base">
-                    <a className="tracking-[-2px] md:tracking-[-1px]">
+                    <a
+                      href="https://github.com/phukon"
+                      className="tracking-[-2px] md:tracking-[-1px]"
+                    >
                       <button className="bg-black text-white px-4 py-3 underline font-semibold decoration-neutral-400 text-xl md:text-sm w-full md:w-auto">
                         Github
                       </button>

@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Header from "@/components/Header";
+import Section from "@/components/Section";
 
 const meta = {
-  title: "Header",
-  component: Header,
+  title: "Section",
+  component: Section,
 
   tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
   },
-} satisfies Meta<typeof Header>;
+} satisfies Meta<typeof Section>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const LoggedIn: Story = {};
+export const LightSection: Story = {};
