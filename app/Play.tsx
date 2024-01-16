@@ -1,18 +1,11 @@
 import Header from "@/components/Header";
-import Section from "@/components/Section";
+import CaroPlay from "./CaroPlay";
 
-import mecha from "/public/pics/mecha.jpg";
-
-
-const Play = () => {
-
+export default function Home() {
   return (
     <div className="flex flex-col items-center">
       <Header />
-      <Section pic={mecha} head="wddonewdodn woen" desc="ewdnwud newd nwudn ewdnwudnewdnwud newd nwudn ewdnwudnewdnwud newd nwudn ewdnwewdnwud newd nwudn ewdnwudnewdnwud newd nwudn ewdnwudnewdnwud newd nwudn ewdnwudnudnewdnwud newd nwudn ewdnwudnewdnwud newd nwudn ewdnwudn" />
-
+      <CaroPlay />
     </div>
   );
-};
-
-export default Play;
+}
