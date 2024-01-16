@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import caroPlay from "@/app/caroPlay";
+import caroPlay from "@/app/CaroPlay";
 
 const meta = {
   title: "playground/caroPlay",

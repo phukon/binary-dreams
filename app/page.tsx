@@ -1,11 +1,11 @@
-import Section from "@/components/Section";
 import Header from "@/components/Header";
+import CaroPlay from "./CaroPlay";
 
 export default function Home() {
   return (
     <div className="flex flex-col items-center">
       <Header />
-      <Section />
+      <CaroPlay />
     </div>
   );
 }
