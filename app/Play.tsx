@@ -14,9 +14,6 @@ const Play = () => {
       <Header />
       <Section />
 
-      <div>
-
-      </div>
     </div>
   );
 };
