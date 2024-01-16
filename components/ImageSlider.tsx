@@ -43,13 +43,10 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ slides }) => {
       }}
     >
       <div
+        className="absolute top-2/4 left-11 text-5xl"
         onClick={goToPrevious}
         style={{
-          position: "absolute",
-          top: "50%",
           transform: "translate(0, -50%)",
-          left: "32px",
-          fontSize: "45px",
           color: "#fff",
           zIndex: 1,
           cursor: "pointer",
@@ -63,13 +60,10 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ slides }) => {
         </svg>
       </div>
       <div
+        className="absolute top-2/4 right-11 text-5xl"
         onClick={goToNext}
         style={{
-          position: "absolute",
-          top: "50%",
           transform: "translate(0, -50%)",
-          right: "32px",
-          fontSize: "45px",
           color: "#fff",
           zIndex: 1,
           cursor: "pointer",
