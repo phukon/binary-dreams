@@ -10,7 +10,7 @@ type sectionProps = {
 const Section = ({head, desc, pic}: sectionProps) => {
   
   return (
-    <section className="pt-6 pb-12 items-center max-w-[1200px]">
+    <section className="pt-6 max-w-[390px] pb-12 items-center md:max-w-[1200px]">
       <div className="container px-4 mx-auto">
         <div className="pr-2 ">
           <div className="border border-white bg-white mt-2 ml-2 w-full h-full">
