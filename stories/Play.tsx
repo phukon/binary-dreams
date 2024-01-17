@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import CaroPlay from "./CaroPlay";
+import CaroPlay from "../app/CaroPlay";
 import Footer from "@/components/Footer";
 
 export default function Home() {

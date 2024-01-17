@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import caroPlay from "@/app/CaroPlay";
+import Home from "@/app/page";
 
 const meta = {
-  title: "playground/caroPlay",
-  component: caroPlay,
+  title: "playground/page",
+  component: Home,
 
   tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
   },
-} satisfies Meta<typeof caroPlay>;
+} satisfies Meta<typeof Home>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const caroPlayLight: Story = {};
+export const homeLight: Story = {};
