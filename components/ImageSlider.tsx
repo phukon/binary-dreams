@@ -1,25 +1,20 @@
 "use client";
-import { StaticImageData } from "next/image";
 import { useState } from "react";
 import Section from "@/components/Section";
+import { useCanvas } from "@/context/CanvasContext";
 
-// type Slide = {
-//   url: StaticImageData;
-//   title: string;
+// type sectionData = {
+//   head: string;
+//   desc: string;
+//   pic: string;
+// }
+
+// type ImageSliderProps = {
+//   slides: sectionData[];
 // };
 
-type sectionData = {
-  head: string;
-  desc: string;
-  pic: StaticImageData;
-}
-
-type ImageSliderProps = {
-  // slides: Slide[];
-  slides: sectionData[];
-};
-
-const ImageSlider: React.FC<ImageSliderProps> = ({ slides }) => {
+const ImageSlider: React.FC = () => {
+  const { ImageOptions } = useCanvas();
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const slideStyles = {
@@ -33,12 +28,12 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ slides }) => {
 
   const goToPrevious = () => {
     const isFirstSlide = currentIndex == 0;
-    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
+    const newIndex = isFirstSlide ? ImageOptions.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
   };
 
   const goToNext = () => {
-    const isLastSlide = currentIndex == slides.length - 1;
+    const isLastSlide = currentIndex == ImageOptions.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
   };
@@ -85,15 +80,20 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ slides }) => {
         </svg>
       </div>
       <div style={slideStyles}>
-        <Section pic={slides[currentIndex].pic} head={slides[currentIndex].head} desc={slides[currentIndex].desc}/>
+        <Section
+          pic={ImageOptions[currentIndex].pic}
+          head={ImageOptions[currentIndex].head}
+          desc={ImageOptions[currentIndex].desc}
+        />
       </div>
-      <div className="-mt-10"
+      <div
+        className="-mt-10"
         style={{
           display: "flex",
           justifyContent: "center",
         }}
       >
-        {currentIndex + 1}/{slides.length}
+        {currentIndex + 1}/{ImageOptions.length}
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import Link from "next/link";
 type sectionProps = {
   head: string;
   desc: string;
-  pic: StaticImageData;
+  pic: string;
 };
 
 const Section = ({ head, desc, pic }: sectionProps) => {
