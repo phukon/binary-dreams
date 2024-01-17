@@ -1,5 +1,5 @@
 "use client";
-import Image, { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
 import { useState } from "react";
 import Section from "@/components/Section";
 
@@ -87,7 +87,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ slides }) => {
       <div style={slideStyles}>
         <Section pic={slides[currentIndex].pic} head={slides[currentIndex].head} desc={slides[currentIndex].desc}/>
       </div>
-      <div
+      <div className="-mt-10"
         style={{
           display: "flex",
           justifyContent: "center",

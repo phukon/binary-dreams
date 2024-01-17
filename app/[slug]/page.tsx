@@ -3,7 +3,7 @@ import Draggable from "react-draggable";
 import { useRef } from "react";
 import { createFileName, useScreenshot } from "use-react-screenshot";
 
-const page = () => {
+const Post = () => {
   const [image, takeScreenshot] = useScreenshot({
     quality: 1.0,
   });
@@ -38,4 +38,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Post;
