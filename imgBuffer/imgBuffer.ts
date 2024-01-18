@@ -13,6 +13,12 @@ export const ImageOptions: ImageOption[] = [
     value: "mecha.jpg"
   },
   {
+    head: "to infinity and beyond",
+    desc: "Giant satellite dishes are emblems of human curiosity. They are always out there, transmitting electromagnetic radiation into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watching. Always tracking. Always communicating",
+    pic:"/pics/rocket.jpg",
+    value: "rocket.jpg"
+  },
+  {
     head: "wbfewf ewnwedewaec",
     desc: "wbfewfewn wbfon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchewfewn wbfewfewn wbfewfewnwbfewfewn wbfewfewn wbfewfewnwbfewfewn wbfewfewn wbfewfewnwbfewfewn wbfewfewn wbfewfewn",
     pic: "/pics/satDish.jpg",

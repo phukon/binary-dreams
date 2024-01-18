@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Home from "@/app/page";
-import { CanvasProvider } from "@/context/CanvasContext";
+import { SlideProvider } from "@/context/SlideContext"
 
 const meta = {
   title: "playground/page",
@@ -18,9 +18,9 @@ type Story = StoryObj<typeof meta>;
 export const homeLight: Story = {
   decorators: [
     (Story) => (
-      <CanvasProvider>
+      <SlideProvider>
         <Story />
-      </CanvasProvider>
+      </SlideProvider>
     ),
   ],
 };

@@ -51,7 +51,7 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
     params.set("desc", quote);
     params.set("style", style);
     params.set("bg", image.value);
-    router.replace(`/?${params.toString()}`, undefined);
+    router.replace(`/editor?${params.toString()}`, undefined);
 
     document.title = quote;
   }, [quote, style, image.value]);

@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { limitTo120Characters } from "@/lib/limitTo120Characters";
 import slugify from "slugify";
 import Link from "next/link";

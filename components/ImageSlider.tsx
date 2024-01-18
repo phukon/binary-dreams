@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Section from "@/components/Section";
-import { useCanvas } from "@/context/CanvasContext";
+import { useSlide } from "@/context/SlideContext";
 
 // type sectionData = {
 //   head: string;
@@ -14,8 +14,9 @@ import { useCanvas } from "@/context/CanvasContext";
 // };
 
 const ImageSlider: React.FC = () => {
-  const { ImageOptions } = useCanvas();
+  const { ImageData } = useSlide();
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [transitioning, setTransitioning] = useState<boolean>(false);
 
   const slideStyles = {
     // backgroundImage: `url(${slides[currentIndex].url})`,
@@ -24,19 +25,34 @@ const ImageSlider: React.FC = () => {
     borderRadius: "10px",
     backgroundPosition: "center",
     backgroundSize: "cover",
+    transition: "opacity 0.15s ease-in-out",
+    opacity: transitioning ? 0 : 1,
   };
 
   const goToPrevious = () => {
+    setTransitioning(true);
     const isFirstSlide = currentIndex == 0;
-    const newIndex = isFirstSlide ? ImageOptions.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
+    const newIndex = isFirstSlide ? ImageData.length - 1 : currentIndex - 1;
+    setTimeout(() => {
+      setCurrentIndex(newIndex);
+    }, 100);
   };
 
   const goToNext = () => {
-    const isLastSlide = currentIndex == ImageOptions.length - 1;
+    setTransitioning(true);
+    const isLastSlide = currentIndex == ImageData.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
+    setTimeout(() => {
+      setCurrentIndex(newIndex);
+    }, 100);
   };
+
+  useEffect(() => {
+    const transitionTimeout = setTimeout(() => {
+      setTransitioning(false);
+    }, 500); // Adjust timeout to match transition duration
+    return () => clearTimeout(transitionTimeout);
+  }, [currentIndex]);
 
   return (
     <div
@@ -81,9 +97,9 @@ const ImageSlider: React.FC = () => {
       </div>
       <div style={slideStyles}>
         <Section
-          pic={ImageOptions[currentIndex].pic}
-          head={ImageOptions[currentIndex].head}
-          desc={ImageOptions[currentIndex].desc}
+          pic={ImageData[currentIndex].pic}
+          head={ImageData[currentIndex].head}
+          desc={ImageData[currentIndex].desc}
         />
       </div>
       <div
@@ -93,7 +109,7 @@ const ImageSlider: React.FC = () => {
           justifyContent: "center",
         }}
       >
-        {currentIndex + 1}/{ImageOptions.length}
+        {currentIndex + 1}/{ImageData.length}
       </div>
     </div>
   );

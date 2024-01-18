@@ -1,9 +1,21 @@
-import React from 'react'
+import Image from "next/image";
+import { useCanvas } from "@/context/CanvasContext";
 
 const Canvas = () => {
-  return (
-    <div>Canvas</div>
-  )
-}
+  const { image } = useCanvas();
 
-export default Canvas
+  return (
+    <div className="h-screen">
+      <Image
+        src={image.pic}
+        alt={image.value}
+        width={1920}
+        height={1080}
+        objectFit="contain"
+        objectPosition="top left"
+      />
+    </div>
+  );
+};
+
+export default Canvas;

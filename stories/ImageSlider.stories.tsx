@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ImageSlider from "@/components/ImageSlider";
-import { CanvasProvider } from "@/context/CanvasContext";
+import { SlideProvider } from "@/context/SlideContext";
 
 const meta: Meta<typeof ImageSlider> = {
   component: ImageSlider,
@@ -12,9 +12,9 @@ type Story = StoryObj<typeof ImageSlider>;
 export const ImageSliderLight: Story = {
   decorators: [
     (Story) => (
-      <CanvasProvider>
+      <SlideProvider>
         <Story />
-      </CanvasProvider>
+      </SlideProvider>
     ),
   ],
 };

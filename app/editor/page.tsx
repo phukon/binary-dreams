@@ -1,9 +1,14 @@
-import React from 'react'
+"use client";
+import React from "react";
+import Canvas from "@/components/canvas/Canvas";
+import { CanvasProvider } from "@/context/CanvasContext";
 
 const Editor = () => {
   return (
-    <div>Editor</div>
-  )
-}
+    <CanvasProvider>
+      <Canvas />
+    </CanvasProvider>
+  );
+};
 
-export default Editor
+export default Editor;

@@ -2,16 +2,16 @@
 import Header from "@/components/Header";
 import CaroPlay from "./CaroPlay";
 import Footer from "@/components/Footer";
-import { CanvasProvider } from "@/context/CanvasContext";
+import { SlideProvider } from "@/context/SlideContext";
 
 export default function Home() {
   return (
     <div className="flex flex-col items-center">
-      <CanvasProvider>
+      <SlideProvider>
         <Header />
         <CaroPlay />
         <Footer />
-      </CanvasProvider>
+      </SlideProvider>
     </div>
   );
 }
