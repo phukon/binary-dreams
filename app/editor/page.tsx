@@ -1,8 +1,7 @@
 "use client";
 import React from "react";
-import Canvas from "@/components/canvas/Canvas";
 import { CanvasProvider } from "@/context/CanvasContext";
-
+import Canvas from "./Canvas";
 const Editor = () => {
   return (
     <CanvasProvider>

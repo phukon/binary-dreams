@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
 import { useState, useEffect } from "react";
 
@@ -9,9 +10,9 @@ const Header = () => {
   // to stop scroll when header menu is open
   useEffect(() => {
     if (!isActive) {
-      document.body.classList.add('no-scroll');
+      document.body.classList.add("no-scroll");
     } else {
-      document.body.classList.remove('no-scroll');
+      document.body.classList.remove("no-scroll");
     }
   }, [isActive]);
 
@@ -21,9 +22,11 @@ const Header = () => {
         <div className="border border-black bg-black mt-2 ml-2 w-full h-full">
           <div className="border-2 border-black bg-white mr-2 -ml-2 mb-2 -mt-2 flex px-6 justify-between items-center">
             <div className="h-[24px] w-[104px] md:h-[28px] md:w-[120px]">
-              <span className="text-lg">
-                binary<b>dreams</b>
-              </span>
+              <Link href="/">
+                <span className="text-lg">
+                  binary<b>dreams</b>
+                </span>
+              </Link>
             </div>
             <nav
               className={`md:flex fixed md:relative top-24 md:top-0 left-0 right-0 bottom-0 z-10 bg-white overflow-none ${
@@ -57,7 +60,7 @@ const Header = () => {
                       href="https://donate.stripe.com/5kA4joa4ObNKatyfYY"
                       className="tracking-[-2px] md:tracking-[-1px]"
                     >
-                      sponsor
+                      upvote ^_^
                     </a>
                   </p>
                 </li>

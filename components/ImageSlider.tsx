@@ -59,6 +59,7 @@ const ImageSlider: React.FC = () => {
       style={{
         height: "100%",
         position: "relative",
+        paddingBottom: "35px"
       }}
     >
       <div
@@ -103,7 +104,7 @@ const ImageSlider: React.FC = () => {
         />
       </div>
       <div
-        className="-mt-10"
+        className="-mt-12 text-2xl"
         style={{
           display: "flex",
           justifyContent: "center",

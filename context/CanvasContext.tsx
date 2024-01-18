@@ -5,7 +5,6 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 
 type CanvasContextState = {
   style: string;
-  image: ImageOption;
   quote: string;
   ImageOptions: ImageOption[];
   setQuote: React.Dispatch<React.SetStateAction<string>>;
@@ -59,7 +58,6 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
   const contextValue = {
     quote,
     style,
-    image,
     ImageOptions,
     setQuote,
     setStyle,
