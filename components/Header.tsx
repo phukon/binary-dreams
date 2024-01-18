@@ -34,7 +34,7 @@ const Header = () => {
                 <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
                   <p className="text-5xl font-bold md:text-base">
                     <a
-                      href="https://github.com/phukon"
+                      href="https://rikiphukon.com"
                       className="tracking-[-2px] md:tracking-[-1px]"
                     >
                       phukon
@@ -47,19 +47,17 @@ const Header = () => {
                       href="https://github.com/phukon"
                       className="tracking-[-2px] md:tracking-[-1px]"
                     >
-                      github
+                      source
                     </a>
                   </p>
                 </li>
-                <li className="my-3 absolute md:relative bottom-4 md:bottom-0 left-4 md:left-0 right-4 md:right-0">
+                <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
                   <p className="text-5xl font-bold md:text-base">
                     <a
-                      href="https://github.com/phukon"
+                      href="https://github.com/sponsors/phukon"
                       className="tracking-[-2px] md:tracking-[-1px]"
                     >
-                      <button className="bg-black text-white px-4 py-3 underline font-semibold decoration-neutral-400 text-xl md:text-sm w-full md:w-auto">
-                        Github
-                      </button>
+                      sponsor
                     </a>
                   </p>
                 </li>

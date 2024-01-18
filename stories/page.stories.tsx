@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Home from "@/app/page";
+import { CanvasProvider } from "@/context/CanvasContext";
 
 const meta = {
   title: "playground/page",
@@ -14,4 +15,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const homeLight: Story = {};
+export const homeLight: Story = {
+  decorators: [
+    (Story) => (
+      <CanvasProvider>
+        <Story />
+      </CanvasProvider>
+    ),
+  ],
+};
