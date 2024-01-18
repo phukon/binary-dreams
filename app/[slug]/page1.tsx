@@ -8,6 +8,8 @@
 //     quality: 1.0,
 //   });
 
+//   console.log(image)
+
 //   const refSS = useRef(null);
 
 //   const download = (

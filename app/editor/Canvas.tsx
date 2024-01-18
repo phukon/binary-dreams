@@ -1,21 +1,58 @@
+import Quote from "@/components/quote/Quote";
 import { Button } from "@/components/ui/button";
-
+import Image from "next/image";
+import { useRef } from "react";
+import { createFileName, useScreenshot } from "use-react-screenshot";
 
 export default function Canvas() {
+  // --- ss logic ---
+  const [image, takeScreenshot] = useScreenshot({
+    quality: 1.0,
+  });
+  const refSS = useRef(null);
+
+  const download = (
+    image: string,
+    { name = "riki", extension = "png" } = {}
+  ) => {
+    const a = document.createElement("a");
+    a.href = image;
+    a.download = createFileName(extension, name);
+    a.click();
+  };
+
+  const downloadSS = () => {
+    takeScreenshot(refSS.current).then(download);
+  };
+
+  // ------
+
   return (
-    <div className="flex flex-col h-screen">
-      <header className="flex items-center justify-between p-4 border-b dark:bg-gray-800">
+    <div className="flex flex-col md:px-5 lg:px-20 h-screen">
+      {/* <header className="flex items-center justify-between p-4 border-b dark:bg-gray-800">
         <h1 className="text-xl font-semibold">Editor</h1>
         <div className="flex items-center gap-4">
-          <Button size="sm" variant="outline">
+          <Button onClick={downloadSS} size="sm" variant="outline">
             Save
           </Button>
         </div>
-      </header>
-      <main className="flex flex-col md:flex-row flex-1">
-        <aside className="flex flex-col gap-4 p-4 border-r w-full md:w-60">
+      </header> */}
+      <main className="flex flex-col min-[1026px]:flex-row flex-1">
+        <div ref={refSS} className="flex-1 max-h-[325px] md:max-h-screen p-4">
+          <div className="max-h-[700px] max-w-[900px] border rounded-md bg-gray-800">
+            <Image
+              width={1920}
+              height={1080}
+              alt="Canvas"
+              className="h-full w-full object-cover md:object-cover rounded-md"
+              src="/pics/rocket.jpg"
+            />
+            <Quote />
+          </div>
+        </div>
+        <aside className="flex flex-col gap-4 p-4 md:p-4 border-r w-full md:w-[550px]">
           <h2 className="text-lg font-semibold">Tools</h2>
-          <div className="flex flex-col gap-2">
+          <div className="grid grid-cols-2 gap-2">
             <Button className="justify-start" size="sm" variant="ghost">
               <PencilIcon className="h-4 w-4 mr-2" />
               Draw
@@ -41,6 +78,7 @@ export default function Canvas() {
               Flip
             </Button>
           </div>
+
           <h2 className="text-lg font-semibold">Settings</h2>
           <div className="flex flex-col gap-2">
             {/* <Label htmlFor="brush-size">Brush Size</Label>
@@ -51,15 +89,6 @@ export default function Canvas() {
             <Input id="opacity" max="1" min="0" step="0.1" type="range" /> */}
           </div>
         </aside>
-        <div className="flex-1 p-4">
-          <div className="h-full w-full border rounded-md">
-            <img
-              alt="Canvas"
-              className="h-full w-full object-cover rounded-md"
-              src="/pics/rocket.jpg"
-            />
-          </div>
-        </div>
       </main>
     </div>
   );

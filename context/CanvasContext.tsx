@@ -19,7 +19,7 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const defaultQuote = "yooo hoooo";
+  const defaultQuote = "Your text here";
   const defaultStyle = "minimal";
   const defaultBackground = ImageOptions[0];
 
@@ -31,7 +31,7 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const [quote, setQuote] = useState<string>(
-    parseString(searchParams.get("desc") || defaultQuote)
+    parseString(searchParams.get("quote") || defaultQuote)
   );
 
   const [style, setStyle] = useState<string>(
@@ -47,7 +47,7 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
 
   useEffect(() => {
     const params = new URLSearchParams();
-    params.set("desc", quote);
+    params.set("quote", quote);
     params.set("style", style);
     params.set("bg", image.value);
     router.replace(`/editor?${params.toString()}`, undefined);
