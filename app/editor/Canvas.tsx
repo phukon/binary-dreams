@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import { createFileName, useScreenshot } from "use-react-screenshot";
 import { useCanvas } from "@/context/CanvasContext";
+import Link from "next/link";
 
 export default function Canvas() {
   // --- ss logic ---
@@ -35,9 +36,12 @@ export default function Canvas() {
       <header className="flex items-center justify-between p-4 border-b dark:bg-gray-800">
         <h1 className="text-xl font-semibold">Editor</h1>
         <div className="flex items-center gap-4">
-          <button className="bg-black text-white px-3 py-2 font-semibold underline decoration-neutral-400">
-            Share
-          </button>
+          <Link href={"/share"}>
+            {" "}
+            <button className="bg-black text-white px-3 py-2 font-semibold underline decoration-neutral-400">
+              Share
+            </button>
+          </Link>
           <Button
             onClick={downloadSS}
             variant="brutal"
@@ -50,7 +54,7 @@ export default function Canvas() {
       </header>
       <main
         style={{ boxShadow: "15px 15px 0px rgba(0, 0, 0, 1)" }}
-        className="flex border-2 md:min-h-[900px] border-black flex-col min-[1026px]:flex-row flex-1"
+        className="flex border-2 md:min-h-[950px] border-black flex-col min-[1026px]:flex-row flex-1"
       >
         <div className="md:max-h-screen border rounded-lg">
           <div

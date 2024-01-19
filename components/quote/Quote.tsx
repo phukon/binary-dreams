@@ -18,7 +18,7 @@ export default function Quote() {
   const debouncedSetPosition = useCallback(
     debounce((x: number, y: number) => {
       setPosition({ x, y });
-    }, 2000),
+    }, 1000),
     []
   );
 

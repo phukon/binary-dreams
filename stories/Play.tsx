@@ -1,12 +1,12 @@
 import Header from "@/components/Header";
-import CaroPlay from "../app/CaroPlay";
 import Footer from "@/components/Footer";
+import CaroPlay from "@/app/caroPlay";
 
 export default function Home() {
   return (
     <div className="flex flex-col items-center">
       <Header />
-      <CaroPlay />
+      <CaroPlay/>
       <Footer/>
     </div>
   );
