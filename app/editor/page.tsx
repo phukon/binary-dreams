@@ -2,10 +2,14 @@
 import React from "react";
 import { CanvasProvider } from "@/context/CanvasContext";
 import Canvas from "./Canvas";
+
+import dynamic from 'next/dynamic'
+ 
+const NoSSR = dynamic(() => import('@/app/editor/Canvas'), { ssr: false })
 const Editor = () => {
   return (
     <CanvasProvider>
-      <Canvas />
+      <NoSSR />
     </CanvasProvider>
   );
 };
