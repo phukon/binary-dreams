@@ -16,7 +16,10 @@ const Section = ({ head, desc, pic }: sectionProps) => {
         <div className="pr-2 ">
           <div className="border border-white bg-white mt-2 ml-2 w-full h-full">
             <div className="border-2 border-black bg-white mr-2 -ml-2 mb-2 -mt-2">
-              <div className="flex flex-col md:flex-row justify-between dotted-div">
+              <div
+                style={{ boxShadow: "15px 15px 0px rgba(0, 0, 0, 1)" }}
+                className="flex flex-col md:flex-row justify-between dotted-div"
+              >
                 <Image
                   src={pic}
                   height={450}

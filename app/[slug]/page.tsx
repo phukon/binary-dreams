@@ -13,11 +13,12 @@ import {
   CardFooter,
   Card,
 } from "@/components/ui/card";
+import Link from "next/link";
 
 export default function Post() {
   const path = usePathname();
   const { ImageData } = useSlide();
-  const currentIndex = ImageData.findIndex((o) => o.slug === path) || 3;
+  const currentIndex = ImageData.findIndex((o) => o.slug === path) || 0;
 
   return (
     <div className="grid lg:grid-cols-2 gap-6 p-4 md:p-6">
@@ -38,9 +39,18 @@ export default function Post() {
             <h3 className="font-semibold text-lg md:text-xl text-white">
               {ImageData[currentIndex].head}
             </h3>
-            <Button className="mt-4" variant="outline">
-              Edit
-            </Button>
+            <Link
+              href={`/editor?quote=Your+text+here&style=minimal&bg=${ImageData[currentIndex].value}&x=50&y=-50`}
+            >
+              <Button
+                className="mt-4"
+                variant="brutal"
+                size="default"
+                style={{ boxShadow: "6px 6px 0px rgba(0, 0, 0, 1)" }}
+              >
+                Edit
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

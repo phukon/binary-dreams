@@ -31,22 +31,36 @@ export default function Canvas() {
   const { currentImage } = useCanvas();
 
   return (
-    <div className="flex flex-col md:px-5 lg:px-20 h-screen">
-      {/* <header className="flex items-center justify-between p-4 border-b dark:bg-gray-800">
+    <div className="flex flex-col p-4 md:px-5 lg:px-20 h-screen">
+      <header className="flex items-center justify-between p-4 border-b dark:bg-gray-800">
         <h1 className="text-xl font-semibold">Editor</h1>
         <div className="flex items-center gap-4">
-          <Button onClick={downloadSS} size="sm" variant="outline">
+          <button className="bg-black text-white px-3 py-2 font-semibold underline decoration-neutral-400">
+            Share
+          </button>
+          <Button
+            onClick={downloadSS}
+            variant="brutal"
+            size="default"
+            style={{ boxShadow: "6px 6px 0px rgba(0, 0, 0, 1)" }}
+          >
             Save
           </Button>
         </div>
-      </header> */}
-      <main className="flex flex-col min-[1026px]:flex-row flex-1">
-        <div ref={refSS} className="flex-1 max-h-[325px] md:max-h-screen p-4">
-          <div className="relative max-h-[700px] max-w-[900px] border rounded-md bg-gray-800">
+      </header>
+      <main
+        style={{ boxShadow: "15px 15px 0px rgba(0, 0, 0, 1)" }}
+        className="flex border-2 md:min-h-[900px] border-black flex-col min-[1026px]:flex-row flex-1"
+      >
+        <div className="md:max-h-screen border rounded-lg">
+          <div
+            ref={refSS}
+            className="relative max-h-[700px] max-w-[900px] border rounded-lg"
+          >
             <Image
               width={1920}
               height={1080}
-              alt="Canvas"
+              alt="canvas image"
               className="h-full w-full object-cover md:object-cover rounded-md"
               src={currentImage.pic}
             />

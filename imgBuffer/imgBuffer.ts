@@ -36,11 +36,11 @@ export const ImageOptions: ImageOption[] = [
     slug: "/reams-from-the-future",
   },
   {
-    head: "dreams from the future",
+    head: "Are you listening?",
     desc: "Giant satellite dishes are emblems of human curiosity. They are always out there, transmitting electromagnetic radiation into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watching. Always tracking. Always communicating",
     pic: "/pics/satDish.jpg",
     value: "satDish.jpg",
-    slug: "/s-from-the-future",
+    slug: "/are-you-listening",
   },
 ];
 
