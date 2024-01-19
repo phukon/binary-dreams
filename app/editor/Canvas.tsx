@@ -4,9 +4,12 @@ import Image from "next/image";
 import { useRef } from "react";
 import { createFileName, useScreenshot } from "use-react-screenshot";
 import { useCanvas } from "@/context/CanvasContext";
-import Link from "next/link";
+import { useAtomValue, useSetAtom } from "jotai";
+import { uiAtom } from "@/state/State";
+import InPortal from "@/components/InPortal";
 
 export default function Canvas() {
+  const ui = useAtomValue(uiAtom);
   // --- ss logic ---
   const [image, takeScreenshot] = useScreenshot({
     quality: 1.0,
@@ -28,20 +31,51 @@ export default function Canvas() {
   };
 
   // ------
-
+  const setUi = useSetAtom(uiAtom);
   const { currentImage } = useCanvas();
 
   return (
     <div className="flex flex-col p-4 md:px-5 lg:px-20 h-screen">
+      {ui.modal && (
+        <InPortal wrapperId="idkmaybe">
+          <div className="modal">
+            <div className="modal-content">
+              <button
+                onClick={() =>
+                  setUi((prev) => ({
+                    ...prev,
+                    modal: false,
+                  }))
+                }
+              >
+                &times;
+              </button>
+              <h2>Prologue</h2>
+              <p>
+                The FitnessGram Pacer Test is a multistage aerobic capacity test
+                that progressively gets more difficult as it continues. The
+                running speed starts slowly, but gets faster each minute after
+                you hear this signal.
+              </p>
+            </div>
+          </div>
+        </InPortal>
+      )}
       <header className="flex items-center justify-between p-4 border-b dark:bg-gray-800">
         <h1 className="text-xl font-semibold">Editor</h1>
         <div className="flex items-center gap-4">
-          <Link href={"/share"}>
-            {" "}
-            <button className="bg-black text-white px-3 py-2 font-semibold underline decoration-neutral-400">
-              Share
-            </button>
-          </Link>
+          {" "}
+          <button
+            className="bg-black text-white px-3 py-2 font-semibold underline decoration-neutral-400"
+            onClick={() =>
+              setUi((prev) => ({
+                ...prev,
+                modal: true,
+              }))
+            }
+          >
+            Share
+          </button>
           <Button
             onClick={downloadSS}
             variant="brutal"
