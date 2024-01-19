@@ -39,8 +39,8 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const [position, setPosition] = useState<Position>({
-    x: parseFloat(searchParams.get("x") || "0"),
-    y: parseFloat(searchParams.get("y") || "0"),
+    x: parseFloat(searchParams.get("x") || "50"),
+    y: parseFloat(searchParams.get("y") || "-50"),
   });
 
   const [quote, setQuote] = useState<string>(
