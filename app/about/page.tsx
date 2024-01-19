@@ -13,7 +13,7 @@ const page = () => {
         </a>
         <a
           style={{ color: "black" }}
-          href="https://zerodha.tech/blog/scaling-with-common-sense/"
+          href=""
         >
           [2]
         </a>

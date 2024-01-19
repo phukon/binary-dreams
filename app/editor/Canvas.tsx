@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useRef } from "react";
 import { createFileName, useScreenshot } from "use-react-screenshot";
+import { useCanvas } from "@/context/CanvasContext";
 
 export default function Canvas() {
   // --- ss logic ---
@@ -27,6 +28,8 @@ export default function Canvas() {
 
   // ------
 
+  const { currentImage } = useCanvas();
+
   return (
     <div className="flex flex-col md:px-5 lg:px-20 h-screen">
       {/* <header className="flex items-center justify-between p-4 border-b dark:bg-gray-800">
@@ -39,13 +42,13 @@ export default function Canvas() {
       </header> */}
       <main className="flex flex-col min-[1026px]:flex-row flex-1">
         <div ref={refSS} className="flex-1 max-h-[325px] md:max-h-screen p-4">
-          <div className="max-h-[700px] max-w-[900px] border rounded-md bg-gray-800">
+          <div className="relative max-h-[700px] max-w-[900px] border rounded-md bg-gray-800">
             <Image
               width={1920}
               height={1080}
               alt="Canvas"
               className="h-full w-full object-cover md:object-cover rounded-md"
-              src="/pics/rocket.jpg"
+              src={currentImage.pic}
             />
             <Quote />
           </div>

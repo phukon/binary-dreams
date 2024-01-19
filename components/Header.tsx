@@ -37,6 +37,7 @@ const Header = () => {
                 <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
                   <p className="text-5xl font-bold md:text-base">
                     <a
+                      target="_blank"
                       href="https://rikiphukon.com"
                       className="tracking-[-2px] md:tracking-[-1px]"
                     >
@@ -47,7 +48,8 @@ const Header = () => {
                 <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
                   <p className="text-5xl font-bold md:text-base">
                     <a
-                      href="https://github.com/phukon"
+                      target="_blank"
+                      href="https://github.com/phukon/binary-dreams"
                       className="tracking-[-2px] md:tracking-[-1px]"
                     >
                       source
@@ -57,6 +59,7 @@ const Header = () => {
                 <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
                   <p className="text-5xl font-bold md:text-base">
                     <a
+                      target="_blank"
                       href="https://donate.stripe.com/5kA4joa4ObNKatyfYY"
                       className="tracking-[-2px] md:tracking-[-1px]"
                     >

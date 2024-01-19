@@ -3,13 +3,21 @@ import { ImageOption, ImageOptions } from "@/imgBuffer/imgBuffer";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
+interface Position {
+  x: number;
+  y: number;
+}
+
 type CanvasContextState = {
   style: string;
   quote: string;
   ImageOptions: ImageOption[];
+  currentImage: ImageOption;
+  position: Position;
   setQuote: React.Dispatch<React.SetStateAction<string>>;
   setStyle: React.Dispatch<React.SetStateAction<string>>;
-  setImage: React.Dispatch<React.SetStateAction<ImageOption>>;
+  setCurrentImage: React.Dispatch<React.SetStateAction<ImageOption>>;
+  setPosition: React.Dispatch<React.SetStateAction<Position>>;
 };
 
 const CanvasContext = createContext<CanvasContextState | undefined>(undefined);
@@ -30,6 +38,11 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
     return "";
   };
 
+  const [position, setPosition] = useState<Position>({
+    x: parseFloat(searchParams.get("x") || "0"),
+    y: parseFloat(searchParams.get("y") || "0"),
+  });
+
   const [quote, setQuote] = useState<string>(
     parseString(searchParams.get("quote") || defaultQuote)
   );
@@ -37,7 +50,7 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
   const [style, setStyle] = useState<string>(
     parseString(searchParams.get("style") || defaultStyle)
   );
-  const [image, setImage] = useState<ImageOption>(
+  const [currentImage, setCurrentImage] = useState<ImageOption>(
     ImageOptions.find(
       (o) =>
         o.value ===
@@ -49,19 +62,24 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
     const params = new URLSearchParams();
     params.set("quote", quote);
     params.set("style", style);
-    params.set("bg", image.value);
+    params.set("bg", currentImage.value);
+    params.set("x", position.x.toString());
+    params.set("y", position.y.toString());
     router.replace(`/editor?${params.toString()}`, undefined);
 
     document.title = quote;
-  }, [quote, style, image.value]);
+  }, [quote, style, currentImage.value, position.x, position.y]);
 
   const contextValue = {
     quote,
     style,
+    currentImage,
     ImageOptions,
+    position,
     setQuote,
     setStyle,
-    setImage,
+    setCurrentImage,
+    setPosition,
   };
 
   return (
