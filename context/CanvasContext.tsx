@@ -1,5 +1,6 @@
 import { ImageOption, ImageOptions } from "@/imgBuffer/imgBuffer";
-
+import { useSetAtom } from "jotai";
+import { uiAtom } from "@/state/State";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
@@ -14,8 +15,10 @@ type CanvasContextState = {
   ImageOptions: ImageOption[];
   currentImage: ImageOption;
   position: Position;
+  share: boolean;
   setQuote: React.Dispatch<React.SetStateAction<string>>;
   setStyle: React.Dispatch<React.SetStateAction<string>>;
+  setShare: React.Dispatch<React.SetStateAction<boolean>>;
   setCurrentImage: React.Dispatch<React.SetStateAction<ImageOption>>;
   setPosition: React.Dispatch<React.SetStateAction<Position>>;
 };
@@ -30,6 +33,8 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
   const defaultQuote = "Your text here";
   const defaultStyle = "minimal";
   const defaultBackground = ImageOptions[0];
+  const setUi = useSetAtom(uiAtom);
+  setUi((prev) => ({ ...prev, modal: true }));
 
   const parseString = (value: string | string[] | undefined): string => {
     if (typeof value === "string") {
@@ -38,9 +43,18 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
     return "";
   };
 
+  const [share, setShare] = useState<boolean>(JSON.parse(searchParams.get("share") || "false"));
+
+
+  if (share === true) {
+    setUi((prev) => ({ ...prev, modal: true }));
+  } else if (share === false) {
+    setUi((prev) => ({ ...prev, modal: false }));
+  }
+
   const [position, setPosition] = useState<Position>({
-    x: parseFloat(searchParams.get("x") || "50"),
-    y: parseFloat(searchParams.get("y") || "-50"),
+    x: parseFloat(searchParams.get("x") || "130"),
+    y: parseFloat(searchParams.get("y") || "-208"),
   });
 
   const [quote, setQuote] = useState<string>(
@@ -65,10 +79,11 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
     params.set("bg", currentImage.value);
     params.set("x", position.x.toString());
     params.set("y", position.y.toString());
+    params.set("share", share.toString());
     router.replace(`/editor?${params.toString()}`, undefined);
 
     document.title = quote;
-  }, [quote, style, currentImage.value, position.x, position.y]);
+  }, [quote, style, currentImage.value, position.x, position.y, share]);
 
   const contextValue = {
     quote,
@@ -76,6 +91,8 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
     currentImage,
     ImageOptions,
     position,
+    share,
+    setShare,
     setQuote,
     setStyle,
     setCurrentImage,

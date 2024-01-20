@@ -12,32 +12,46 @@ const createWrapperAndAppendToBody = (wrapperId: string) => {
 function InPortal({
   children,
   wrapperId,
+  onClick,
 }: {
   children: React.ReactElement;
   wrapperId: string;
+  onClick?: () => void;
 }) {
   const [wrapperElement, setWrapperElement] = useState<HTMLElement>();
 
   useLayoutEffect(() => {
-    let element = document.getElementById(wrapperId)
-    let systemCreated = false
+    let element = document.getElementById(wrapperId);
+    let systemCreated = false;
+
     // create and append
-    if(!element) {
-      systemCreated = true
-      element = createWrapperAndAppendToBody(wrapperId)
+    if (!element) {
+      systemCreated = true;
+      element = createWrapperAndAppendToBody(wrapperId);
     }
-    setWrapperElement(element!) // non-null assertion operator
+
+    setWrapperElement(element!); // non-null assertion operator
+    document.documentElement.classList.add("no-scroll");
+
+    if (onClick && element) {
+      element.addEventListener("click", onClick);
+    }
 
     return () => {
-      // delete the created element programatically
-      if (systemCreated && element?.parentNode) {
-        element.parentNode.removeChild(element)
-      }
-    }
-  }, [wrapperId])
 
-  if (!wrapperElement) return null
-  return createPortal(children, wrapperElement)
+      if (onClick && element) {
+        element.removeEventListener("click", onClick);
+      }
+
+      if (systemCreated && element?.parentNode) {
+        element.parentNode.removeChild(element);
+        document.documentElement.classList.remove("no-scroll");
+      }
+    };
+  }, [wrapperId, onClick]);
+
+  if (!wrapperElement) return null;
+  return createPortal(children, wrapperElement);
 }
 
 export default InPortal;

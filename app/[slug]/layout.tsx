@@ -6,5 +6,9 @@ export default function PostLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <SlideProvider>{children}</SlideProvider>;
+  return (
+    <div>
+      <SlideProvider>{children}</SlideProvider>;
+    </div>
+  );
 }

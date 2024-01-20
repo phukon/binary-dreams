@@ -82,8 +82,34 @@
 .dotted-div {
   background-image: radial-gradient(
     circle,
-    rgba(0, 0, 0, 0.312) 1px,
-    transparent 1px
+    rgba(0, 0, 0, 0.237) 1px,
+    transparent 1.5px
   );
   background-size: 20px 20px;
 }
+
+body {
+  font-family: var(--font-orbitron);
+}
+
+.custom-1 {
+  font-family: var(--font-inter);
+}
+
+/* Modal styles */
+#idkmaybe {
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+  height: 100%;
+  width: 100%;
+  /* view */
+  position: fixed;
+  top: 10;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+} 

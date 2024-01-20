@@ -3,8 +3,14 @@
 import Link from "next/link";
 import React from "react";
 import { useState, useEffect } from "react";
+import { twMerge } from "tailwind-merge";
 
-const Header = () => {
+type HeaderProps = {
+  className?: string;
+  isTitle: boolean;
+};
+
+const Header = (props: HeaderProps = { className: "", isTitle: true }) => {
   const [isActive, setIsActive] = useState(true);
 
   // to stop scroll when header menu is open
@@ -16,24 +22,48 @@ const Header = () => {
     }
   }, [isActive]);
 
+  const className = twMerge("container px-4 mx-auto pt-4", props.className);
+
   return (
-    <div className="container px-4 mx-auto pt-4">
+    <div className={className}>
       <div className="pr-2 w-full">
         <div className="border border-black bg-black mt-2 ml-2 w-full h-full">
-          <div className="border-2 border-black bg-white mr-2 -ml-2 mb-2 -mt-2 flex px-6 justify-between items-center">
-            <div className="h-[24px] w-[104px] md:h-[28px] md:w-[120px]">
-              <Link href="/">
-                <span className="text-lg">
-                  binary<b>dreams</b>
-                </span>
-              </Link>
-            </div>
+          <div className={`border-2 border-black bg-white mr-2 -ml-2 mb-2 -mt-2 flex px-6 ${props.isTitle ? "justify-between" : "justify-center"} items-center`}>
+            {props.isTitle && (
+              <div className="h-[24px] w-[104px] md:h-[28px] md:w-[120px]">
+                <Link href="/">
+                  <span className="text-lg">
+                    binary<b>dreams</b>
+                  </span>
+                </Link>
+              </div>
+            )}
             <nav
-              className={`md:flex fixed md:relative top-24 md:top-0 left-0 right-0 bottom-0 z-10 bg-white overflow-none ${
+              className={`md:flex fixed md:relative top-24 md:top-0 left-0 right-0 bottom-0 z-20 bg-white overflow-none ${
                 isActive && "hidden"
               }`}
             >
               <ul className="container px-4 md:px-0 mx-auto flex flex-1 flex-col min-h-full md:flex-row md:gap-x-8 md:items-center relative">
+                <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
+                  <p className="text-5xl font-bold md:text-base">
+                    <a
+                      href="/about"
+                      className="tracking-[-2px] md:tracking-[-1px]"
+                    >
+                      about
+                    </a>
+                  </p>
+                </li>
+                <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
+                  <p className="text-5xl font-bold md:text-base">
+                    <a
+                      href="/about"
+                      className="tracking-[-2px] md:tracking-[-1px]"
+                    >
+                      stories
+                    </a>
+                  </p>
+                </li>
                 <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
                   <p className="text-5xl font-bold md:text-base">
                     <a

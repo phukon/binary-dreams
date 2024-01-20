@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-
-const inter = Inter({ subsets: ["latin"] });
+import { orbitron, inter, pixelify_sans, tektur } from "@/fonts";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Binary Dreams",
@@ -17,11 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Header />
+      <body
+        className={`${orbitron.variable} ${inter.variable} ${pixelify_sans.variable} ${tektur.variable}`}
+      >
+        <Toaster/>
         {children}
       </body>
-      <div id="outPortal"></div>
     </html>
   );
 }

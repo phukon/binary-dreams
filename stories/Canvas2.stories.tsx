@@ -1,20 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Header from "@/components/Header";
+import Canvas2 from "@/app/editor/Canvas2";
 
 const meta = {
-  title: "Header",
-  component: Header,
+  title: "Canvas2",
+  component: Canvas2,
 
   tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
   },
-} satisfies Meta<typeof Header>;
+} satisfies Meta<typeof Canvas2>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const LoggedIn: Story = {args: {
-  className: " ",
-  isTitle: true
-}};
+export const Canvas2Light: Story = {};

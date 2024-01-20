@@ -38,9 +38,9 @@ export default function Canvas() {
   return (
     <div className="flex flex-col p-4 md:px-5 lg:px-20 h-screen">
       {ui.modal && (
-        <div suppressHydrationWarning>
+        <div>
           <InPortal wrapperId="idkmaybe">
-            <div className="modal" suppressHydrationWarning>
+            <div className="modal">
               <div className="modal-content">
                 <button
                   onClick={() =>
@@ -91,7 +91,7 @@ export default function Canvas() {
       </header>
       <main
         style={{ boxShadow: "15px 15px 0px rgba(0, 0, 0, 1)" }}
-        className="flex border-2 md:min-h-[950px] border-black flex-col min-[1026px]:flex-row flex-1"
+        className="flex md:min-h-[950px]  border-2 border-black flex-col min-[1026px]:flex-row flex-1"
       >
         <div className="md:max-h-screen border rounded-lg">
           <div

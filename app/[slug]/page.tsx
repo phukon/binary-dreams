@@ -4,7 +4,6 @@ import Image from "next/image";
 
 import { useSlide } from "@/context/SlideContext";
 import { Button } from "@/components/ui/button";
-import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
 import {
   CardTitle,
   CardDescription,
@@ -56,10 +55,7 @@ export default function Post() {
       </div>
       <Card className="bg-white bg-opacity-80 dark:bg-gray-900 dark:bg-opacity-80">
         <CardHeader className="flex flex-row items-center gap-4">
-          <Avatar className="w-8 h-8 border">
-            <AvatarImage alt="@shadcn" src=" " />
-            <AvatarFallback>AC</AvatarFallback>
-          </Avatar>
+
           <div className="grid gap-1">
             <CardTitle>@username</CardTitle>
             <CardDescription>2h ago</CardDescription>

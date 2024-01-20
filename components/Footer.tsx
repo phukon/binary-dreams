@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="border-black border-t-2 w-full items-center flex flex-col">
+    <div className="border-black border-t-2 w-full items-center flex flex-col dotted-div">
       <section className=" hidden md:block pt-6 px-6 pb-2 text-center md:max-w-[900px] break-words  text-[#666]">
         <p>
           Hats off to Ishan for dropping these mind-bending visuals, straight

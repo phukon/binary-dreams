@@ -29,7 +29,7 @@ const Section = ({ head, desc, pic }: sectionProps) => {
                 />
 
                 <div className="flex flex-col justify-between  md:px-10">
-                  <h1 className="min-h-[250px]  md:h-auto font-serif tracking-[-2.5px] text-6xl p-4 md:mt-10 break-words font-extrabold">
+                  <h1 className="min-h-[250px]  md:h-auto tracking-[-2.5px] text-6xl p-4 md:mt-10 break-words font-extrabold">
                     {head}
                   </h1>
                   <div className="flex flex-col">
@@ -39,7 +39,7 @@ const Section = ({ head, desc, pic }: sectionProps) => {
                     </p>
                     <div className="p-4">
                       <Link href={`/${slugify(head, { lower: true })}`}>
-                        <button className="bg-black text-white px-4 py-3 font-semibold underline decoration-neutral-400">
+                        <button className="bg-black text-white px-4 py-3 font-semibold rounded underline decoration-neutral-400">
                           Open
                         </button>
                       </Link>
