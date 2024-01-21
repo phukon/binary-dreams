@@ -1,4 +1,5 @@
 "use client";
+import Header from "@/components/Header";
 import { SlideProvider } from "@/context/SlideContext";
 
 export default function PostLayout({
@@ -8,6 +9,7 @@ export default function PostLayout({
 }) {
   return (
     <div>
+      <Header isTitle={true}/>
       <SlideProvider>{children}</SlideProvider>;
     </div>
   );

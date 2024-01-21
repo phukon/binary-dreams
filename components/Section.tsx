@@ -38,7 +38,7 @@ const Section = ({ head, desc, pic }: sectionProps) => {
                       {limitTo120Characters(desc) + "... .."}
                     </p>
                     <div className="p-4">
-                      <Link href={`/${slugify(head, { lower: true })}`}>
+                      <Link href={`/read/${slugify(head, { lower: true })}`}>
                         <button className="bg-black text-white px-4 py-3 font-semibold rounded underline decoration-neutral-400">
                           Open
                         </button>

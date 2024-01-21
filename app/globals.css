@@ -112,4 +112,20 @@ body {
   right: 0;
   bottom: 0;
   z-index: 50;
-} 
+}
+
+pre {
+  font-family: monospace;
+  font-size: 1.5em;
+  white-space: pre;
+  animation: slide 15s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
