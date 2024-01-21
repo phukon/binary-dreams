@@ -22,7 +22,7 @@
     "react-draggable": "^4.4.6",
     "react-hot-toast": "^2.4.1",
     "react-select": "^5.8.0",
-    "react-timezone-select": "^3.2.2",
+    "react-timezone-select": "^2.1.1",
     "slugify": "^1.6.6",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",

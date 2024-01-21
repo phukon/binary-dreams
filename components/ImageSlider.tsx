@@ -98,7 +98,7 @@ const ImageSlider: React.FC = () => {
       </div>
       <div style={slideStyles}>
         <Section
-          pic={ImageData[currentIndex].pic}
+          pic={ImageData[currentIndex].src}
           head={ImageData[currentIndex].head}
           desc={ImageData[currentIndex].desc}
         />

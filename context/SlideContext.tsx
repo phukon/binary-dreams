@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { ImageOption, ImageOptions } from "@/imgBuffer/imgBuffer";
+import { ImageOption, ImageOptions } from "@/types/imgBuffer";
 
 type SlideContextType = {
   ImageData: ImageOption[];

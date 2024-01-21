@@ -1,4 +1,4 @@
-import { ImageOption, ImageOptions } from "@/imgBuffer/imgBuffer";
+import { ImageOption, ImageOptions } from "@/types/imgBuffer";
 import { useSetAtom } from "jotai";
 import { uiAtom } from "@/state/State";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -124,6 +124,8 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
     const params = new URLSearchParams();
 
     params.set("timezone", timezone);
+    params.set("date", date.toISOString().split("T")[0]);
+    params.set("time", date.toISOString().split("T")[1].substring(0, 5));
     params.set("quote", quote);
     params.set("desc", description);
     params.set("style", style);
@@ -132,13 +134,12 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
     params.set("y", position.y.toString());
     params.set("x1", position.x1.toString());
     params.set("y1", position.y1.toString());
-    params.set("date", date.toISOString().split("T")[0]);
-    params.set("time", date.toISOString().split("T")[1].substring(0, 5));
+
     params.set("share", share.toString());
     router.replace(`/editor?${params.toString()}`, undefined);
 
     document.title = quote;
-  }, [quote, style, currentImage.value, position, share]);
+  }, [quote, style, currentImage.value, timezone, position, share]);
 
   const contextValue = {
     quote,

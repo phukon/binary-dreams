@@ -12,6 +12,7 @@ import { useScrollPosition } from "@/lib/useScrollPosition";
 import { useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
 import Countdown from "@/components/Countdown";
+import Settings from "@/components/Settings";
 
 const Canvas2 = () => {
   // --- ss logic ---
@@ -83,7 +84,7 @@ const Canvas2 = () => {
                 height={1920}
                 alt="canvas image"
                 className="h-full w-full object-cover md:object-cover rounded-md"
-                src={currentImage.pic}
+                src={currentImage.src}
               />
               <Quote />
               <Countdown/>
@@ -91,7 +92,7 @@ const Canvas2 = () => {
           </div>
         </InPortal>
       )}
-      <aside className="sticky top-0 hidden h-full max-h-screen min-h-full w-full flex-shrink-0 flex-col justify-between overflow-hidden overscroll-none p-8 lg:flex lg:max-w-[288px] xl:max-w-[384px] xl:p-16 2xl:max-w-[448px]">
+      <aside className="sticky top-0 hidden h-full max-h-screen min-h-full w-full flex-shrink-0 flex-col justify-between overflow-y-auto p-8 lg:flex lg:max-w-[288px] xl:max-w-[384px] xl:p-16 2xl:max-w-[448px]">
         <div className="flex-grow">
           <div>
             <h2>
@@ -144,6 +145,7 @@ const Canvas2 = () => {
                 Download
               </Button>
             </div>
+            <Settings/>
             <a
               style={{ boxShadow: "6px 6px 0px rgba(0, 0, 0, 1)" }}
               className="inline-flex select-none items-center border-2 dark:!shadow-none dark:!border-none group space-x-4 rounded-md px-6 py-3 text-base shadow-md sm:rounded-lg border-black text-black hover:bg-blue-100 dark:border-gray-800 dark:bg-gray-900 hover:border-blue-200 dark:hover:bg-white dark:text-gray-300 dark:hover:text-black cursor-pointer"
@@ -283,7 +285,7 @@ const Canvas2 = () => {
                 height={1920}
                 alt="canvas image"
                 className="h-full w-full rounded-md"
-                src={currentImage.pic}
+                src={currentImage.src}
               />
               <Quote />
               <Countdown/>

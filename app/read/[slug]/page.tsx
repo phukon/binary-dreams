@@ -26,7 +26,7 @@ export default function Post() {
           alt="Wallpaper 1"
           className="object-cover w-full h-60 md:h-96"
           height="600"
-          src={ImageData[currentIndex].pic}
+          src={ImageData[currentIndex].src}
           style={{
             aspectRatio: "800/600",
             objectFit: "cover",
@@ -39,7 +39,7 @@ export default function Post() {
               {ImageData[currentIndex].head}
             </h3>
             <Link
-              href={`/editor?quote=Your+text+here&style=minimal&bg=${ImageData[currentIndex].value}&x=50&y=-50`}
+              href={`/editor?bg=${ImageData[currentIndex].value}`}
             >
               <Button
                 className="mt-4"

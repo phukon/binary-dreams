@@ -14,6 +14,7 @@ export default function Countdown() {
     setPosition,
   } = useCanvas();
 
+
   const [fractionalTime, setFractionalTime] = useState<number>(
     daysUntilFractional(until, timezone)
   );
@@ -38,7 +39,7 @@ export default function Countdown() {
   const debouncedSetPosition = useCallback(
     debounce(({ x, y, setPosition }: DebouncedSetPositionType) => {
       setPosition((prevPosition) => ({ ...prevPosition, x1: x, y1: y }));
-    }, 1000),
+    }, 500),
     []
   );
 

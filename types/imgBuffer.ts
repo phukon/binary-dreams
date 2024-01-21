@@ -3,8 +3,9 @@ import slugify from "slugify";
 export type ImageOption = {
   head: string;
   desc: string;
-  pic: string;
+  src: string;
   value: string;
+  label: string
   slug?: string;
 };
 
@@ -17,54 +18,48 @@ export const ImgData: ImageOption[] = [
   {
     head: "dreams from the future",
     desc: "Giant satellite dishes are emblems of human curiosity. They are always out there, transmitting electromagnetic radiation into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watching. Always tracking. Always communicating",
-    pic: "/pics/rocket.jpg",
+    src: "/pics/rocket.jpg",
     value: "rocket.jpg",
+    label: "rocket.jpg",
   },
   {
     head: "dreams from the future",
     desc: "Giant satellite dishes are emblems of human curiosity. They are always out there, transmitting electromagnetic radiation into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watching. Always tracking. Always communicating",
-    pic: "/pics/mecha.jpg",
+    src: "/pics/mecha.jpg",
     value: "mecha.jpg",
-  },
-  {
-    head: "dreams from the future",
-    desc: "Giant satellite dishes are emblems of human curiosity. They are always out there, transmitting electromagnetic radiation into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watching. Always tracking. Always communicating",
-    pic: "/pics/rocket.jpg",
-    value: "rocket.jpg",
-  },
-  {
-    head: "dreams from the future",
-    desc: "Giant satellite dishes are emblems of human curiosity. They are always out there, transmitting electromagnetic radiation into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watching. Always tracking. Always communicating",
-    pic: "/pics/mecha.jpg",
-    value: "mecha.jpg",
+    label: "mecha.jpg",
   },
   {
     head: "Are you listening?",
     desc: "Giant satellite dishes are emblems of human curiosity. They are always out there, transmitting electromagnetic radiation into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watching. Always tracking. Always communicating",
-    pic: "/pics/satDish.jpg",
+    src: "/pics/satDish.jpg",
     value: "satDish.jpg",
+    label: "satDish.jpg",
   },
   {
     head: "Hangar",
     desc: "Giant satellite dishes are emblems of human curiosity. They are always out there, transmitting electromagnetic radiation into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watching. Always tracking. Always communicating",
-    pic: "/pics/hangar.jpg",
+    src: "/pics/hangar.jpg",
     value: "hangar.jpg",
+    label: "hangar.jpg",
   },
   {
     head: "Defence",
     desc: "Giant satellite dishes are emblems of human curiosity. They are always out there, transmitting electromagnetic radiation into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watching. Always tracking. Always communicating",
-    pic: "/pics/mecha2.jpg",
+    src: "/pics/mecha2.jpg",
     value: "mecha2.jpg",
+    label: "mecha2.jpg",
   },
   {
     head: "Arrival",
     desc: "Giant satellite dishes are emblems of human curiosity. They are always out there, transmitting electromagnetic radiation into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watching. Always tracking. Always communicating",
-    pic: "/pics/arrival.jpg",
+    src: "/pics/arrival.jpg",
     value: "arrival.jpg",
+    label: "arrival.jpg",
   },
 ];
 
-export const QuoteStyles: string[] = ["bold", "cool", "fractional", "traditional"];
+export const draggableStyles: string[] = ["bold", "cool", "fractional", "traditional"];
 
 export const ImageOptions: ImageOption[] = ImgData.map((options) => ({
   ...options,
