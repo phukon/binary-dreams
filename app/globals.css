@@ -96,6 +96,10 @@ body {
   font-family: var(--font-inter);
 }
 
+.--font-pixelify_sans {
+  font-family: var(--font-pixelify_sans);
+}
+
 /* Modal styles */
 #idkmaybe {
   background: rgba(0, 0, 0, 0.8);

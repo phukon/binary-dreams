@@ -1,4 +1,4 @@
-import { useCanvas } from "@/context/CanvasContext";
+import { useCanvas, Position } from "@/context/CanvasContext";
 import Draggable from "react-draggable";
 import { useCallback } from "react";
 
@@ -14,20 +14,6 @@ export default function Quote() {
    * Updating the position too frequently is not a good idea, getting errors and warnings
    * So I had to debounce position updates.
    */
-
-  const debouncedSetPosition = useCallback(
-    debounce((x: number, y: number) => {
-      setPosition({ x, y });
-    }, 1000),
-    []
-  );
-
-  const handleDrag = (_: any, ui: any) => {
-    const { x, y } = ui;
-
-    debouncedSetPosition(x, y);
-  };
-
   function debounce(func: any, delay: any) {
     let timeoutId: any;
 
@@ -39,6 +25,24 @@ export default function Quote() {
       }, delay);
     };
   }
+  const debouncedSetPosition = useCallback(
+    debounce(({ x, y, setPosition }: DebouncedSetPositionType) => {
+      setPosition((prevPosition) => ({ ...prevPosition, x, y }));
+    }, 1000),
+    []
+  );
+
+  type DebouncedSetPositionType = {
+    x: number;
+    y: number;
+    setPosition: React.Dispatch<React.SetStateAction<Position>>;
+  };
+
+  const handleDrag = (_: any, ui: any) => {
+    const { x, y } = ui;
+
+    debouncedSetPosition({ x, y, setPosition });
+  };
 
   // -------------
 

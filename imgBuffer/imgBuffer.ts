@@ -64,7 +64,7 @@ export const ImgData: ImageOption[] = [
   },
 ];
 
-export const QuoteStyles: string[] = ["minimal", "bold", "cool"];
+export const QuoteStyles: string[] = ["bold", "cool", "fractional", "traditional"];
 
 export const ImageOptions: ImageOption[] = ImgData.map((options) => ({
   ...options,
