@@ -144,7 +144,7 @@ const Canvas2 = () => {
               </Button>
             </div>
             <Settings />
-            <a
+            {/* <a
               style={{ boxShadow: "6px 6px 0px rgba(0, 0, 0, 1)" }}
               className="inline-flex select-none items-center border-2 dark:!shadow-none dark:!border-none group space-x-4 rounded-md px-6 py-3 text-base shadow-md sm:rounded-lg border-black text-black hover:bg-blue-100 dark:border-gray-800 dark:bg-gray-900 hover:border-blue-200 dark:hover:bg-white dark:text-gray-300 dark:hover:text-black cursor-pointer"
               href="/"
@@ -191,7 +191,7 @@ const Canvas2 = () => {
                 ></path>
               </svg>
               <span>Repository</span>
-            </a>
+            </a> */}
           </div>
         </div>
         <div className="mt-6 inline-flex flex-col space-y-1.5 text-center">

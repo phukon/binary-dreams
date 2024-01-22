@@ -7,7 +7,7 @@ import Header from "@/components/Header";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center custom-orbitron">
       <SlideProvider>
       <Header isTitle={true} />
         <CaroPlay/>

@@ -72,6 +72,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--local-orbitron);
   }
 }
 
@@ -88,16 +89,24 @@
   background-size: 20px 20px;
 }
 
-body {
-  font-family: var(--font-orbitron);
-}
-
 .custom-1 {
   font-family: var(--font-inter);
 }
 
-.--font-pixelify_sans {
-  font-family: var(--font-pixelify_sans);
+.--local-pixel1 {
+  font-family: var(--local-pixel1);
+}
+
+.--local-pixel2 {
+  font-family: var(--local-pixel2);
+}
+
+.--local-handwritten {
+  font-family: var(--local-handwritten);
+}
+
+.--local-tektur {
+  font-family: var(--local-tektur);
 }
 
 /* Modal styles */

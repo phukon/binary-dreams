@@ -9,8 +9,28 @@ type SettingsProps = {
 };
 
 export default function Settings(props: SettingsProps = { className: " " }) {
-  const { quote, style, currentImage, setQuote, setStyle, setCurrentImage } =
-    useCanvas();
+  const {
+    quote,
+    style,
+    currentImage,
+    neonGlowEnabled,
+    selectedNeonGlowStyle,
+    setQuote,
+    setStyle,
+    setCurrentImage,
+    setNeonGlowEnabled,
+    setSelectedNeonGlowStyle
+  } = useCanvas();
+
+  const handleNeonGlowToggle = () => {
+    setNeonGlowEnabled(!neonGlowEnabled);
+  };
+
+  const handleNeonGlowStyleChange = (option: any) => {
+    if (option) {
+      setSelectedNeonGlowStyle(option.value);
+    }
+  };
 
   return (
     <div className={props.className}>
@@ -64,6 +84,38 @@ export default function Settings(props: SettingsProps = { className: " " }) {
           className="w-full p-2 rounded text-black text-xs font-apple2mono"
         />
       </Label>
+      <div className="mt-4">
+        <label className="flex items-center">
+          <input
+            type="checkbox"
+            className="form-checkbox"
+            checked={neonGlowEnabled}
+            onChange={handleNeonGlowToggle}
+          />
+          <span className="ml-2 text-xs">Enable Neon Glow</span>
+        </label>
+        {neonGlowEnabled && (
+          <div className="mt-2">
+            <Label text="Neon Glow Style">
+              <Select
+                defaultValue={{
+                  value: selectedNeonGlowStyle,
+                  label: selectedNeonGlowStyle,
+                }}
+                onChange={handleNeonGlowStyleChange}
+                className="w-full rounded text-black text-xs font-apple2mono"
+                options={[
+                  { value: "white", label: "white" },
+                  { value: "red", label: "Red" },
+                  { value: "green", label: "Green" },
+                  { value: "yellow", label: "Yellow" },
+                ]}
+                isSearchable={false}
+              />
+            </Label>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -5,7 +5,7 @@ export type ImageOption = {
   desc: string;
   src: string;
   value: string;
-  label: string
+  label: string;
   slug?: string;
 };
 
@@ -59,7 +59,16 @@ export const ImgData: ImageOption[] = [
   },
 ];
 
-export const draggableStyles: string[] = ["bold", "cool", "fractional", "traditional"];
+export const draggableStyles: string[] = [
+  "techno",
+  "bold",
+  "handwritten",
+  "pixel1",
+  "pixel2",
+  "default",
+];
+
+export const neonGlowStyles: string[] = ["white", "red", "green", "yellow"];
 
 export const ImageOptions: ImageOption[] = ImgData.map((options) => ({
   ...options,
