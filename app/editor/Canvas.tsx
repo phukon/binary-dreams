@@ -11,7 +11,6 @@ import { useCanvas } from "@/context/CanvasContext";
 import { useScrollPosition } from "@/lib/useScrollPosition";
 import { useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
-import Countdown from "@/components/Countdown";
 import Settings from "@/components/Settings";
 
 const Canvas2 = () => {
@@ -78,8 +77,8 @@ const Canvas2 = () => {
           }}
         >
           <div>
-            <div className="relative w-full h-full md:w-7/12 md:h-7/12 md:ml-32 border rounded-lg">
-              <Image
+            <div className="relative max-w-[390px] h-full md:max-w-[700px] md:max-h-screen md:ml-32 border rounded-lg">
+              <img
                 width={1920}
                 height={1920}
                 alt="canvas image"
@@ -87,12 +86,11 @@ const Canvas2 = () => {
                 src={currentImage.src}
               />
               <Quote />
-              <Countdown/>
             </div>
           </div>
         </InPortal>
       )}
-      <aside className="sticky top-0 hidden h-full max-h-screen min-h-full w-full flex-shrink-0 flex-col justify-between overflow-y-auto p-8 lg:flex lg:max-w-[288px] xl:max-w-[384px] xl:p-16 2xl:max-w-[448px]">
+      <aside className="sticky top-0 hidden h-full max-h-screen min-h-full w-full flex-shrink-0 flex-col justify-between overflow-y-auto p-8 lg:flex lg:max-w-[300px] xl:max-w-[390px] xl:p-16 2xl:max-w-[455px]">
         <div className="flex-grow">
           <div>
             <h2>
@@ -145,7 +143,7 @@ const Canvas2 = () => {
                 Download
               </Button>
             </div>
-            <Settings/>
+            <Settings />
             <a
               style={{ boxShadow: "6px 6px 0px rgba(0, 0, 0, 1)" }}
               className="inline-flex select-none items-center border-2 dark:!shadow-none dark:!border-none group space-x-4 rounded-md px-6 py-3 text-base shadow-md sm:rounded-lg border-black text-black hover:bg-blue-100 dark:border-gray-800 dark:bg-gray-900 hover:border-blue-200 dark:hover:bg-white dark:text-gray-300 dark:hover:text-black cursor-pointer"
@@ -217,7 +215,7 @@ const Canvas2 = () => {
         <Header isTitle={false} className="hidden lg:block lg:py-2" />
         {/* this is a quick fix lol */}
         <Header isTitle={true} className="py-2 lg:hidden" />
-        <main className="p-6 sm:p-8 lg:w-full lg:max-w-prose lg:flex-shrink xl:max-w-4xl xl:p-16 2xl:max-w-5xl dotted-div">
+        <main className="p-6 sm:p-8 lg:w-full lg:max-w-prose lg:flex-shrink xl:max-w-4xl xl:p-16 2xl:max-w-5xl mb-5 dotted-div">
           <header>
             <div className="flex items-center space-x-4 sm:space-x-8 sm:px-16 lg:px-0">
               <div className="relative w-1/3 max-w-[215px] lg:w-1/4">
@@ -274,11 +272,11 @@ const Canvas2 = () => {
               </Button>
             </div>
           </header>
-          <div className="mt-5 space-y-12 lg:mt-0 lg:space-y-24">
+          <div className="mt-5 mb-10 space-y-12 lg:mt-0 lg:space-y-24">
             <div
               style={{ boxShadow: "15px 15px 0px rgba(0, 0, 0, 1)" }}
               ref={refSS}
-              className="relative mt-10 border rounded-lg"
+              className="relative mt-10 border md:max-w-[650px] rounded-lg"
             >
               <img
                 width={1920}
@@ -288,9 +286,9 @@ const Canvas2 = () => {
                 src={currentImage.src}
               />
               <Quote />
-              <Countdown/>
             </div>
           </div>
+          <Settings className="min-[1024px]:hidden"/>
         </main>
       </div>
     </div>
