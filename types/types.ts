@@ -23,7 +23,7 @@ export const ImgData: ImageOption[] = [
     label: "rocket.jpg",
   },
   {
-    head: "dreams from the future",
+    head: "Titans",
     desc: "Giant satellite dishes are emblems of human curiosity. They are always out there, transmitting electromagnetic radiation into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watchon into the starry night skies. Always watching. Always tracking. Always communicating",
     src: "/pics/mecha.jpg",
     value: "mecha.jpg",

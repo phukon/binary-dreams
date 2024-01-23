@@ -54,7 +54,7 @@ const Header = (props: HeaderProps = { className: "", isTitle: true }) => {
                     </a>
                   </p>
                 </li>
-                <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
+                {/* <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
                   <p className="text-5xl font-bold md:text-base">
                     <a
                       href="/about"
@@ -63,12 +63,12 @@ const Header = (props: HeaderProps = { className: "", isTitle: true }) => {
                       stories
                     </a>
                   </p>
-                </li>
+                </li> */}
                 <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
                   <p className="text-5xl font-bold md:text-base">
                     <a
                       target="_blank"
-                      href="https://rikiphukon.com"
+                      href="https://rkph.me"
                       className="tracking-[-2px] md:tracking-[-1px]"
                     >
                       phukon

@@ -101,6 +101,7 @@ const ImageSlider: React.FC = () => {
           pic={ImageData[currentIndex].src}
           head={ImageData[currentIndex].head}
           desc={ImageData[currentIndex].desc}
+          value={ImageData[currentIndex].value}
         />
       </div>
       <div

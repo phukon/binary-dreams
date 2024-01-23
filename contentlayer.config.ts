@@ -9,7 +9,8 @@ import { ImageOptions } from "./types/types";
 const getSlug = (doc: any) => doc._raw.sourceFileName.replace(/\.mdx$/, "");
 
 const getImage = (target: string) => {
-  return ImageOptions.find((options) => options.slug === `/read/${target}`)?.value;
+  return ImageOptions.find((options) => options.slug === `/read/${target}`)
+    ?.value;
 };
 
 const postComputedFields: ComputedFields = {
@@ -20,6 +21,21 @@ const postComputedFields: ComputedFields = {
   image: {
     type: "string",
     resolve: (doc) => `/pics/${getImage(getSlug(doc))}`,
+  },
+  og: {
+    type: "string",
+    resolve: (doc) => `/read/${getSlug(doc)}/image.png`,
+  },
+};
+
+const aboutComputedFields: ComputedFields = {
+  slug: {
+    type: "string",
+    resolve: (doc) => getSlug(doc),
+  },
+  image: {
+    type: "string",
+    resolve: (doc) => `/pics/rocket.jpg`,
   },
   og: {
     type: "string",
@@ -42,9 +58,21 @@ export const Post = defineDocumentType(() => ({
   computedFields: postComputedFields,
 }));
 
+export const About = defineDocumentType(() => ({
+  name: "About",
+  filePathPattern: `about/**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: { type: "string", required: true },
+    summary: { type: "string", required: true },
+    shortTitle: { type: "string", required: false, default: "" },
+  },
+  computedFields: aboutComputedFields,
+}));
+
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [Post],
+  documentTypes: [Post, About],
   mdx: {
     rehypePlugins: [rehypeSlug],
   },
