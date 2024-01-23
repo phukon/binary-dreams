@@ -29,6 +29,12 @@ export const localTektur = localFont({
 });
 
 
+export const localInter = localFont({
+  src: "./Inter-VariableFont_slnt,wght.ttf",
+  variable: "--local-inter",
+});
+
+
 // ------ for dev ------
 
 export const orbitron = Orbitron({

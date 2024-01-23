@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { localTektur, localOrbitron, localPixel1, localPixel2, localhandwritten } from "@/fonts/fonts";
+import { localTektur, localOrbitron, localPixel1, localPixel2, localhandwritten, localInter } from "@/fonts/fonts";
 import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${localTektur.variable} ${localOrbitron.variable} ${localPixel1.variable} ${localPixel2.variable} ${localhandwritten.variable}`}
+        className={`${localTektur.variable} ${localOrbitron.variable} ${localPixel1.variable} ${localInter.variable}  ${localPixel2.variable} ${localhandwritten.variable}`}
       >
         <Toaster/>
         {children}

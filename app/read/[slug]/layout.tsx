@@ -9,8 +9,11 @@ export default function PostLayout({
 }) {
   return (
     <div>
-      <Header isTitle={true}/>
-      <SlideProvider>{children}</SlideProvider>;
+      <Header isTitle={true} />
+      <div className="mx-auto max-w-[700px] px-6 pb-24 pt-16 md:px-6 md:pb-44 md:pt-20">
+        {" "}
+        <SlideProvider>{children}</SlideProvider>;
+      </div>
     </div>
   );
 }

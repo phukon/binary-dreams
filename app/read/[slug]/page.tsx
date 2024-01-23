@@ -1,165 +1,122 @@
-"use client";
-import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { notFound } from "next/navigation";
+import type { Metadata, ResolvingMetadata } from "next";
+import { allPosts, Post as PostType } from ".contentlayer/generated";
 
-import { useSlide } from "@/context/SlideContext";
-import { Button } from "@/components/ui/button";
-import {
-  CardTitle,
-  CardDescription,
-  CardHeader,
-  CardContent,
-  CardFooter,
-  Card,
-} from "@/components/ui/card";
-import Link from "next/link";
+import Tags from "@/components/Tags";
+import MdxWrapper from "@/components/mdx-components/MdxWrapper";
+import { formatDate } from "@/lib/formatdate";
 
-export default function Post() {
-  const path = usePathname();
-  const { ImageData } = useSlide();
-  const currentIndex = ImageData.findIndex((o) => o.slug === path) || 0;
+
+type PostProps = {
+  post: PostType;
+  related: PostType[];
+};
+
+type Props = {
+  params: {
+    slug: string;
+    id: string;
+  };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const post = allPosts.find((post) => post.slug === params.slug);
+
+  if (!post) {
+    throw new Error("Post not found");
+  }
+
+  const {
+    title,
+    publishedAt: publishedTime,
+    summary: description,
+    // image,
+    // slug,
+  } = post;
+
+  const metadata: Metadata = {
+    title: `${title} | Riki Phukon`,
+    description,
+    openGraph: {
+      title: `${title} | Riki Phukon`,
+      description,
+      type: "article",
+      publishedTime,
+      url: `https://rikiphukon.com/blog/${title}`,
+      images: [
+        {
+          url: `https://rikiphukon.com/api/og?title=${title}`,
+          alt: title,
+        },
+      ],
+    },
+  };
+
+  return metadata;
+}
+
+export default async function Post({ params }: { params: any }) {
+  const post = allPosts.find((post) => post.slug === params.slug);
+  if (!post) {
+    notFound();
+  }
 
   return (
-    <div className="grid lg:grid-cols-2 gap-6 p-4 md:p-6">
-      <div className="relative group overflow-hidden rounded-lg">
-        <Image
-          alt="Wallpaper 1"
-          className="object-cover w-full h-60 md:h-96"
-          height="600"
-          src={ImageData[currentIndex].src}
-          style={{
-            aspectRatio: "800/600",
-            objectFit: "cover",
-          }}
-          width="800"
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-opacity">
-          <div className="p-4 md:p-6">
-            <h3 className="font-semibold text-lg md:text-xl text-white">
-              {ImageData[currentIndex].head}
-            </h3>
-            <Link
-              href={`/editor?bg=${ImageData[currentIndex].value}`}
-            >
-              <Button
-                className="mt-4"
-                variant="brutal"
-                size="default"
-                style={{ boxShadow: "6px 6px 0px rgba(0, 0, 0, 1)" }}
-              >
-                Edit
-              </Button>
-            </Link>
+    <div className="flex flex-col gap-20">
+      <article>
+        <div
+          className="flex animate-in flex-col gap-8"
+          style={{ "--index": 1 } as React.CSSProperties}
+        >
+          <div className="max-w-xl space-y-2">
+            <h1 className="text-3xl font-bold leading-tight tracking-tight text-primary">
+              {post.title}
+            </h1>
+            <p className="text-lg leading-tight text-primary md:text-xl">
+              {post.summary}
+            </p>
+          </div>
+
+          <div className="flex max-w-none items-center gap-4">
+            <div className="leading-tight">
+              <time dateTime={post.publishedAt}>
+                {formatDate(post.publishedAt)}
+              </time>
+            </div>
           </div>
         </div>
-      </div>
-      <Card className="bg-white bg-opacity-80 dark:bg-gray-900 dark:bg-opacity-80">
-        <CardHeader className="flex flex-row items-center gap-4">
 
-          <div className="grid gap-1">
-            <CardTitle>@username</CardTitle>
-            <CardDescription>2h ago</CardDescription>
-          </div>
-        </CardHeader>
-        <CardContent className="text-sm">
-          {ImageData[currentIndex].desc}
-        </CardContent>
-        <CardFooter className="flex items-center gap-4">
-          <Button size="icon" variant="ghost">
-            <HeartIcon className="w-4 h-4" />
-            <span className="sr-only">Like</span>
-          </Button>
-          <Button size="icon" variant="ghost">
-            <MessageCircleIcon className="w-4 h-4" />
-            <span className="sr-only">Comment</span>
-          </Button>
-          <Button size="icon" variant="ghost">
-            <SendIcon className="w-4 h-4" />
-            <span className="sr-only">Share</span>
-          </Button>
-          <Button className="ml-auto" size="icon" variant="ghost">
-            <BookmarkIcon className="w-4 h-4" />
-            <span className="sr-only">Save</span>
-          </Button>
-        </CardFooter>
-      </Card>
+        {post.image && (
+          <>
+            <div className="h-8" />
+            <Image
+              src={post.image}
+              alt={`${post.title} post image`}
+              width={700}
+              height={350}
+              className="-ml-6 w-[calc(100%+48px)] max-w-none animate-in md:rounded-lg lg:-ml-16 lg:w-[calc(100%+128px)]"
+              style={{ "--index": 2 } as React.CSSProperties}
+              priority
+              quality={100}
+            />
+          </>
+        )}
+
+        <div className="h-16" />
+        <div
+          className="prose prose-neutral --local-inter animate-in"
+          style={{ "--index": 3 } as React.CSSProperties}
+        >
+          <MdxWrapper code={post.body.code} />
+        </div>
+      </article>
+
+      <Tags tags={post.tags} />
     </div>
-  );
-}
-
-function BookmarkIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
-    </svg>
-  );
-}
-
-function HeartIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-    </svg>
-  );
-}
-
-function MessageCircleIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" />
-    </svg>
-  );
-}
-
-function SendIcon(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m22 2-7 20-4-9-9-4Z" />
-      <path d="M22 2 11 13" />
-    </svg>
   );
 }
