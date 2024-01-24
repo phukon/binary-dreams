@@ -35,7 +35,7 @@ const aboutComputedFields: ComputedFields = {
   },
   image: {
     type: "string",
-    resolve: (doc) => `/pics/rocket.jpg`,
+    resolve: (doc) => `/pics/collage.jpg`,
   },
   og: {
     type: "string",
