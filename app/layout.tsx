@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { localTektur, localOrbitron, localPixel1, localPixel2, localhandwritten, localInter } from "@/fonts/fonts";
+import {
+  localTektur,
+  localOrbitron,
+  localPixel1,
+  localPixel2,
+  localhandwritten,
+  localInter,
+} from "@/fonts/fonts";
 import { Toaster } from "react-hot-toast";
+import AudioPlayer from "@/components/AudioPlayer";
 
 export const metadata: Metadata = {
   title: "Binary Dreams",
@@ -16,7 +24,6 @@ export const metadata: Metadata = {
         alt: "Binary Dreams",
       },
     ],
-    
   },
 };
 
@@ -30,7 +37,8 @@ export default function RootLayout({
       <body
         className={`${localTektur.variable} ${localOrbitron.variable} ${localPixel1.variable} ${localInter.variable}  ${localPixel2.variable} ${localhandwritten.variable}`}
       >
-        <Toaster/>
+        <AudioPlayer />
+        <Toaster />
         {children}
       </body>
     </html>

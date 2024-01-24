@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import Quote from "@/components/quote/Quote";
 import { createFileName, useScreenshot } from "use-react-screenshot";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useAtomValue, useSetAtom } from "jotai";
 import { uiAtom } from "@/state/State";

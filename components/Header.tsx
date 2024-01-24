@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import { useState, useEffect } from "react";
 import { twMerge } from "tailwind-merge";
+// import AudioPlayer from "./AudioPlayer";
 
 type HeaderProps = {
   className?: string;
@@ -28,7 +29,11 @@ const Header = (props: HeaderProps = { className: "", isTitle: true }) => {
     <div className={className}>
       <div className="pr-2 w-full">
         <div className="border border-black bg-black mt-2 ml-2 w-full h-full">
-          <div className={`border-2 border-black bg-white mr-2 -ml-2 mb-2 -mt-2 flex px-6 ${props.isTitle ? "justify-between" : "justify-center"} items-center`}>
+          <div
+            className={`border-2 border-black bg-white mr-2 -ml-2 mb-2 -mt-2 flex px-6 ${
+              props.isTitle ? "justify-between" : "justify-center"
+            } items-center`}
+          >
             {props.isTitle && (
               <div className="h-[24px] w-[104px] md:h-[28px] md:w-[120px]">
                 <Link href="/">
@@ -44,6 +49,9 @@ const Header = (props: HeaderProps = { className: "", isTitle: true }) => {
               }`}
             >
               <ul className="container px-4 md:px-0 mx-auto flex flex-1 flex-col min-h-full md:flex-row md:gap-x-8 md:items-center relative">
+                {/* <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
+                  <AudioPlayer />
+                </li> */}
                 <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
                   <p className="text-5xl font-bold md:text-base">
                     <a
@@ -64,6 +72,7 @@ const Header = (props: HeaderProps = { className: "", isTitle: true }) => {
                     </a>
                   </p>
                 </li> */}
+
                 <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
                   <p className="text-5xl font-bold md:text-base">
                     <a
