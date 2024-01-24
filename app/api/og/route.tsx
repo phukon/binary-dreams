@@ -10,28 +10,11 @@ export async function GET(req: NextRequest) {
 
   // Construct absolute URL for the image
   const absoluteImageUrl = imageUrl
-    ? `${req.nextUrl.origin}/pics/${imageUrl}`
+    ? `${req.nextUrl.origin}${imageUrl}`
     : null;
 
   return new ImageResponse(
     (
-      // <div
-      //   style={{
-      //     fontSize: 40,
-      //     color: 'black',
-      //     background: 'white',
-      //     width: '100%',
-      //     display: 'flex',
-      //     height: '100%',
-      //     padding: '50px 200px',
-      //     textAlign: 'center',
-      //     justifyContent: 'center',
-      //     alignItems: 'center',
-      //   }}
-      // >
-      //   {title ? title : "no title provided"} {" "}
-      //   {absoluteImageUrl ? <img src={absoluteImageUrl} alt='img' /> : "no image"}
-      // </div>
       <div
         style={{
           height: "100%",

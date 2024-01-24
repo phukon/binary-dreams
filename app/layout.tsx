@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     url: `https://bndr.rkph.me`,
     images: [
       {
-        url: `https://bndr.rkph.me/api/og?title=This+is+Binary+Dreams&image=collage.jpg}`,
+        url: "https://bndr.rkph.me/api/og?title=This+is+Binary+Dreams&image=/pics/collage.jpg",
         alt: "Binary Dreams",
       },
     ],
