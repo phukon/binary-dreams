@@ -22,7 +22,6 @@ export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  console.log(allAbouts);
   if (!allAbouts) {
     throw new Error("Not found");
   }
