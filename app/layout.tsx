@@ -36,8 +36,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${localTektur.variable} ${localOrbitron.variable} ${localPixel1.variable} ${localInter.variable}  ${localPixel2.variable} ${localhandwritten.variable}`}
-      >
-        <AudioPlayer />
+      ><AudioPlayer/>
         <Toaster />
         {children}
       </body>

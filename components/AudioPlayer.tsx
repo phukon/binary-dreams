@@ -5,6 +5,7 @@ import Draggable from "react-draggable";
 const AudioPlayer = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  var tap = 0;
 
   useEffect(() => {
     const createAudioElement = () => {
@@ -12,7 +13,7 @@ const AudioPlayer = () => {
 
       const audioElement = document.createElement("audio");
       audioElement.id = "audio_tag";
-      audioElement.src = "/music/riki.mp3";
+      audioElement.src = "/music/fx.mp3";
       audioElement.loop = true;
       document.body.appendChild(audioElement);
       return audioElement;
@@ -34,14 +35,18 @@ const AudioPlayer = () => {
   };
 
   return (
-    <Draggable bounds="parent" defaultPosition={{ x: 100, y: 100 }}>
-      <div className="flex flex-col fixed max-h-[150px] max-w-[150px] z-50 --local-inter tracking-[-2px] md:tracking-[-1px] hover:cursor-move">
-        {isPlaying ? (
-          <img className="hover:cursor-pointer" onClick={togglePlay} width={50} src="/icons/pause.svg" />
-        ) : (
-          <img className="hover:cursor-pointer" onClick={togglePlay} width={50} src="/icons/play.svg" />
-        )}
-        hoool here
+    <Draggable bounds="parent" defaultPosition={{ x: 100, y: 300 }}>
+      <div className=" fixed flex flex-col items-center --local-inter hover:cursor-move z-50 w-fit">
+        <img
+          className="hover:cursor-pointer"
+          onTouchStart={togglePlay}
+          onClick={togglePlay}
+          width={35}
+          src={isPlaying ? "/icons/pause.svg" : "/icons/play.svg"}
+        />
+        <span>---</span>
+        <p>---grab---</p>
+        <span>---</span>
       </div>
     </Draggable>
   );

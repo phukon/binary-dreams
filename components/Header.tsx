@@ -4,7 +4,6 @@ import Link from "next/link";
 import React from "react";
 import { useState, useEffect } from "react";
 import { twMerge } from "tailwind-merge";
-// import AudioPlayer from "./AudioPlayer";
 
 type HeaderProps = {
   className?: string;
@@ -35,7 +34,7 @@ const Header = (props: HeaderProps = { className: "", isTitle: true }) => {
             } items-center`}
           >
             {props.isTitle && (
-              <div className="h-[24px] w-[104px] md:h-[28px] md:w-[120px]">
+              <div className=" flex flex-row h-[24px] w-[104px] md:h-[28px] md:w-[120px]">
                 <Link href="/">
                   <span className="text-lg">
                     binary<b>dreams</b>
@@ -49,9 +48,6 @@ const Header = (props: HeaderProps = { className: "", isTitle: true }) => {
               }`}
             >
               <ul className="container px-4 md:px-0 mx-auto flex flex-1 flex-col min-h-full md:flex-row md:gap-x-8 md:items-center relative">
-                {/* <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
-                  <AudioPlayer />
-                </li> */}
                 <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
                   <p className="text-5xl font-bold md:text-base">
                     <a
@@ -62,17 +58,6 @@ const Header = (props: HeaderProps = { className: "", isTitle: true }) => {
                     </a>
                   </p>
                 </li>
-                {/* <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
-                  <p className="text-5xl font-bold md:text-base">
-                    <a
-                      href="/about"
-                      className="tracking-[-2px] md:tracking-[-1px]"
-                    >
-                      stories
-                    </a>
-                  </p>
-                </li> */}
-
                 <li className="my-4 md:my-3 underline font-semibold decoration-neutral-400">
                   <p className="text-5xl font-bold md:text-base">
                     <a
