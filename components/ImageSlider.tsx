@@ -69,7 +69,7 @@ const ImageSlider: React.FC = () => {
           transform: "translate(0, -500%)",
           zIndex: 1,
           cursor: "pointer",
-          animation: "arrowAnimation 5s linear infinite",
+          animation: "arrowAnimation 2s linear infinite",
         }}
       >
         <svg fill="currentColor" viewBox="0 0 16 16" height="1em" width="1em">
@@ -86,7 +86,7 @@ const ImageSlider: React.FC = () => {
           transform: "translate(0, -500%)",
           zIndex: 1,
           cursor: "pointer",
-          animation: "arrowAnimation 4s linear infinite",
+          animation: "arrowAnimation 2s linear infinite",
         }}
       >
         <svg fill="currentColor" viewBox="0 0 16 16" height="1em" width="1em">

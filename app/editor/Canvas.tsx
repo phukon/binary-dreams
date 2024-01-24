@@ -242,7 +242,7 @@ const Canvas2 = () => {
                 </div>
               </div>
             </div>
-            <div className="flex md:hidden items-center mt-10 gap-4">
+            <div className="flex min-[1024px]:hidden items-center mt-10 gap-4">
               {" "}
               <Button
                 variant="brutal"

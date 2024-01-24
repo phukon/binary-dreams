@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
+    "@vercel/og": "^0.6.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "contentlayer": "^0.3.4",
@@ -32,6 +33,7 @@
     "slugify": "^1.6.6",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
+    "uninstall": "^0.0.0",
     "use-react-screenshot": "^4.0.0"
   },
   "devDependencies": {

@@ -6,6 +6,18 @@ import { Toaster } from "react-hot-toast";
 export const metadata: Metadata = {
   title: "Binary Dreams",
   description: "The coolest e/acc art on the internet.",
+  openGraph: {
+    title: "Binary Dreams",
+    description: "The coolest e/acc art on the internet.",
+    url: `https://bndr.rkph.me`,
+    images: [
+      {
+        url: `https://bndr.rkph.me/api/og?title=This+is+Binary+Dreams&image=collage.jpg}`,
+        alt: "Binary Dreams",
+      },
+    ],
+    
+  },
 };
 
 export default function RootLayout({

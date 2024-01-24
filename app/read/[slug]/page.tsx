@@ -35,22 +35,22 @@ export async function generateMetadata(
     title,
     publishedAt: publishedTime,
     summary: description,
-    // image,
+    image,
     // slug,
   } = post;
 
   const metadata: Metadata = {
-    title: `${title} | Riki Phukon`,
+    title: `${title} | Binary Dreams`,
     description,
     openGraph: {
-      title: `${title} | Riki Phukon`,
+      title: `${title} | Binary Dreams`,
       description,
       type: "article",
       publishedTime,
-      url: `https://rikiphukon.com/blog/${title}`,
+      url: `https://bndr.rkph.me/read/${title}`,
       images: [
         {
-          url: `https://rikiphukon.com/api/og?title=${title}`,
+          url: `https://bndr.rkph.me/api/og?title=${title}&image=${image}`,
           alt: title,
         },
       ],
