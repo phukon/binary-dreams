@@ -59,7 +59,7 @@ const ImageSlider: React.FC = () => {
       style={{
         height: "100%",
         position: "relative",
-        paddingBottom: "35px"
+        paddingBottom: "35px",
       }}
     >
       <div
@@ -67,9 +67,9 @@ const ImageSlider: React.FC = () => {
         onClick={goToPrevious}
         style={{
           transform: "translate(0, -500%)",
-          color: "black",
           zIndex: 1,
           cursor: "pointer",
+          animation: "arrowAnimation 5s linear infinite",
         }}
       >
         <svg fill="currentColor" viewBox="0 0 16 16" height="1em" width="1em">
@@ -84,9 +84,9 @@ const ImageSlider: React.FC = () => {
         onClick={goToNext}
         style={{
           transform: "translate(0, -500%)",
-          color: "black",
           zIndex: 1,
           cursor: "pointer",
+          animation: "arrowAnimation 4s linear infinite",
         }}
       >
         <svg fill="currentColor" viewBox="0 0 16 16" height="1em" width="1em">

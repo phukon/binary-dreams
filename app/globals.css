@@ -185,3 +185,15 @@ pre {
   )::after {
   content: "";
 }
+
+@keyframes arrowAnimation {
+  0% {
+    color: black;
+  }
+  50% {
+    color: white;
+  }
+  100% {
+    color: black;
+  }
+}
