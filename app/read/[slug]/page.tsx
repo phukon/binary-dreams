@@ -77,7 +77,7 @@ export default async function Post({ params }: { params: any }) {
             <h1 className="text-3xl font-bold leading-tight tracking-tight text-primary">
               {post.title}
             </h1>
-            <p className="text-lg leading-tight text-primary md:text-xl">
+            <p className="text-lg --local-tektur leading-tight text-primary md:text-xl">
               {post.summary}
             </p>
           </div>
