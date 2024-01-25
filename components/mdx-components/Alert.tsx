@@ -19,7 +19,7 @@ const Alert = ({
         <InformationCircleIcon className="w-5 h-5" />
       )}
     </div>
-    <div className="not-prose text-sm text-primary">{children}</div>
+    <div className="not-prose --local-berkeley text-sm text-primary">{children}</div>
   </div>
 );
 

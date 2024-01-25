@@ -35,6 +35,12 @@ export const localInter = localFont({
 });
 
 
+export const localBerkeley = localFont({
+  src: "./bkm.ttf",
+  variable: "--local-berkeley",
+});
+
+
 // ------ for dev ------
 
 export const orbitron = Orbitron({
