@@ -14,17 +14,19 @@ export interface Position {
 type CanvasContextState = {
   style: string;
   quote: string;
+  progress: boolean;
   ImageOptions: ImageOption[];
   currentImage: ImageOption;
   position: Position;
   share: boolean;
   neonGlowEnabled: boolean;
   selectedNeonGlowStyle: string;
+  setProgress: React.Dispatch<React.SetStateAction<boolean>>;
   setQuote: React.Dispatch<React.SetStateAction<string>>;
   setStyle: React.Dispatch<React.SetStateAction<string>>;
   setShare: React.Dispatch<React.SetStateAction<boolean>>;
   setNeonGlowEnabled: React.Dispatch<React.SetStateAction<boolean>>;
-  setSelectedNeonGlowStyle: React.Dispatch<React.SetStateAction<string>>
+  setSelectedNeonGlowStyle: React.Dispatch<React.SetStateAction<string>>;
   setCurrentImage: React.Dispatch<React.SetStateAction<ImageOption>>;
   setPosition: React.Dispatch<React.SetStateAction<Position>>;
 };
@@ -38,7 +40,7 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
   const router = useRouter();
   const defaultQuote = "Your text here";
   const defaultStyle = "default";
-  const defaultNeonStyle = "white"
+  const defaultNeonStyle = "white";
   const defaultBackground = ImageOptions[0];
 
   const setUi = useSetAtom(uiAtom);
@@ -83,6 +85,10 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
     parseString(searchParams.get("quote") || defaultQuote)
   );
 
+  const [progress, setProgress] = useState<boolean>(
+    JSON.parse(searchParams.get("progress") || "false")
+  );
+
   const [style, setStyle] = useState<string>(
     parseString(searchParams.get("style") || defaultStyle)
   );
@@ -103,14 +109,24 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
     params.set("y", position.y.toString());
     params.set("x1", position.x1.toString());
     params.set("y1", position.y1.toString());
-    params.set("neon", neonGlowEnabled.toString())
-    params.set("neonstyle", selectedNeonGlowStyle)
+    params.set("progress", progress.toString())
+    params.set("neon", neonGlowEnabled.toString());
+    params.set("neonstyle", selectedNeonGlowStyle);
 
     params.set("share", share.toString());
     router.replace(`/editor?${params.toString()}`, undefined);
 
     document.title = quote;
-  }, [quote, style, currentImage.value, position, share, neonGlowEnabled, selectedNeonGlowStyle]);
+  }, [
+    quote,
+    style,
+    progress,
+    currentImage.value,
+    position,
+    share,
+    neonGlowEnabled,
+    selectedNeonGlowStyle,
+  ]);
 
   const contextValue = {
     quote,
@@ -119,9 +135,11 @@ export const CanvasProvider: React.FC<{ children: React.ReactNode }> = ({
     ImageOptions,
     position,
     share,
+    progress,
     neonGlowEnabled,
     selectedNeonGlowStyle,
     setShare,
+    setProgress,
     setNeonGlowEnabled,
     setSelectedNeonGlowStyle,
     setQuote,

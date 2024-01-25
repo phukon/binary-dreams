@@ -8,11 +8,6 @@ export const localPixel1 = localFont({
   variable: "--local-pixel1",
 });
 
-export const localPixel2 = localFont({
-  src: "./thirteen-pixel-fonts.regular.ttf",
-  variable: "--local-pixel2",
-});
-
 export const localhandwritten = localFont({
   src: './Caveat-VariableFont_wght.ttf',
   variable: "--local-handwritten"
@@ -36,7 +31,7 @@ export const localInter = localFont({
 
 
 export const localBerkeley = localFont({
-  src: "./bkm.ttf",
+  src: "./OcrA.ttf",
   variable: "--local-berkeley",
 });
 

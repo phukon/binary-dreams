@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
+    "@ramonak/react-progress-bar": "^5.2.0",
     "@vercel/og": "^0.6.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",

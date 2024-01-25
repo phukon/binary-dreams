@@ -61,11 +61,9 @@ export const ImgData: ImageOption[] = [
 
 export const draggableStyles: string[] = [
   "techno",
-  "bold",
   "handwritten",
-  "pixel1",
-  "pixel2",
-  "default",
+  "pixel",
+  "terminal",
 ];
 
 export const neonGlowStyles: string[] = ["white", "red", "green", "yellow"];
@@ -74,5 +72,3 @@ export const ImageOptions: ImageOption[] = ImgData.map((options) => ({
   ...options,
   slug: `/read${generateSlug(options.head)}`,
 }));
-
-console.log(ImageOptions)

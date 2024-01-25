@@ -4,10 +4,9 @@ import {
   localTektur,
   localOrbitron,
   localPixel1,
-  localPixel2,
   localhandwritten,
   localInter,
-  localBerkeley
+  localBerkeley,
 } from "@/fonts/fonts";
 import { Toaster } from "react-hot-toast";
 import AudioPlayer from "@/components/AudioPlayer";
@@ -36,8 +35,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${localTektur.variable} ${localBerkeley.variable} ${localOrbitron.variable} ${localPixel1.variable} ${localInter.variable}  ${localPixel2.variable} ${localhandwritten.variable}`}
-      ><AudioPlayer/>
+        className={`${localTektur.variable} ${localBerkeley.variable} ${localOrbitron.variable} ${localPixel1.variable} ${localInter.variable}  ${localhandwritten.variable}`}
+      >
+        <AudioPlayer />
         <Toaster />
         {children}
       </body>

@@ -12,14 +12,16 @@ export default function Settings(props: SettingsProps = { className: " " }) {
   const {
     quote,
     style,
+    progress,
     currentImage,
     neonGlowEnabled,
     selectedNeonGlowStyle,
     setQuote,
     setStyle,
+    setProgress,
     setCurrentImage,
     setNeonGlowEnabled,
-    setSelectedNeonGlowStyle
+    setSelectedNeonGlowStyle,
   } = useCanvas();
 
   const handleNeonGlowToggle = () => {
@@ -35,6 +37,24 @@ export default function Settings(props: SettingsProps = { className: " " }) {
   return (
     <div className={props.className}>
       <div className="grid grid-cols-2 gap-6 mb-5">
+        <label className="flex items-center">
+          <input
+            type="checkbox"
+            className="form-checkbox"
+            checked={neonGlowEnabled}
+            onChange={handleNeonGlowToggle}
+          />
+          <span className="ml-2 text-xs font-semibold">Enable Neon Glow</span>
+        </label>
+        <label className="flex items-center">
+          <input
+            type="checkbox"
+            className="form-checkbox"
+            checked={progress}
+            onChange={() => setProgress(!progress)}
+          />
+          <span className="ml-2 text-xs font-semibold">Add progess bar</span>
+        </label>
         <div>
           <Label text="background">
             <Select
@@ -85,15 +105,6 @@ export default function Settings(props: SettingsProps = { className: " " }) {
         />
       </Label>
       <div className="mt-4">
-        <label className="flex items-center">
-          <input
-            type="checkbox"
-            className="form-checkbox"
-            checked={neonGlowEnabled}
-            onChange={handleNeonGlowToggle}
-          />
-          <span className="ml-2 text-xs">Enable Neon Glow</span>
-        </label>
         {neonGlowEnabled && (
           <div className="mt-2">
             <Label text="Neon Glow Style">
