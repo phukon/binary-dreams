@@ -105,7 +105,7 @@ const Canvas2 = () => {
             </h2>
             <div className="mt-2 space-x-6 text-gray-400 lg:space-x-4 2xl:mt-6 2xl:space-x-6 flex items-center">
               <div className="text-lg 2xl:text-xl whitespace-nowrap">
-                v0.4.0
+                v0.5.0
               </div>
               <div className="text-sm leading-snug 2xl:text-base">
                 The coolest e/acc art on the internet
@@ -162,7 +162,7 @@ const Canvas2 = () => {
                   alt="Logo, generated using DALLE"
                 />
                 <div className="absolute -right-2 -bottom-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black text-lg font-black text-white shadow-md dark:bg-white dark:text-black dark:!shadow-none lg:-right-4 lg:-bottom-6 lg:h-[4.5rem] lg:w-[4.5rem] lg:text-[2rem]">
-                  v0.4
+                  0.5
                 </div>
               </div>
               <div
