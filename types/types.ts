@@ -30,20 +30,6 @@ export const ImgData: ImageOption[] = [
     label: "satDish.jpg",
   },
   {
-    head: "Just wing it!",
-    desc: "In the 1950s, where the rockets are as ugly as the schemes, Sal and his crew decide to just wing it into the future using makeshift rockets, and a whole lot of swagger.",
-    src: "/pics/rocket.jpg",
-    value: "rocket.jpg",
-    label: "rocket.jpg",
-  },
-  {
-    head: "Hangar 51",
-    desc: "The government's not so secret factory. The construction site of the legendary USS Enterprise.",
-    src: "/pics/hangar.jpg",
-    value: "hangar.jpg",
-    label: "hangar.jpg",
-  },
-  {
     head: "Guardian",
     desc: "In a post-Kardashev I world, Aria navigates the reborn Earth with Guardian, a towering mech that is not just a protector but a power plant and a vehicle. Amidst a dwindling population, their journey unfolds, echoing the harmonious coexistence of humanity and the healing planet.",
     src: "/pics/mecha2.jpg",
@@ -119,6 +105,20 @@ export const ImgData: ImageOption[] = [
     src: "/pics/data-centres.jpg",
     value: "data-centres.jpg",
     label: "data-centres.jpg",
+  },
+  {
+    head: "Just wing it!",
+    desc: "In the 1950s, where the rockets are as ugly as the schemes, Sal and his crew decide to just wing it into the future using makeshift rockets, and a whole lot of swagger.",
+    src: "/pics/rocket.jpg",
+    value: "rocket.jpg",
+    label: "rocket.jpg",
+  },
+  {
+    head: "Hangar 51",
+    desc: "The government's not so secret factory. The construction site of the legendary USS Enterprise.",
+    src: "/pics/hangar.jpg",
+    value: "hangar.jpg",
+    label: "hangar.jpg",
   },
 ];
 
