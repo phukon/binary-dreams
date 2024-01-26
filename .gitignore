@@ -2,6 +2,7 @@
 /playground/**
 # contentlayer
 .contentlayer
+.env
 
 # dependencies
 /node_modules

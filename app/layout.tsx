@@ -10,6 +10,12 @@ import {
 } from "@/fonts/fonts";
 import { Toaster } from "react-hot-toast";
 import AudioPlayer from "@/components/AudioPlayer";
+import { PHProvider } from "@/context/PostHog";
+import dynamic from "next/dynamic";
+
+const PostHogPageView = dynamic(() => import("./PostHogPageView"), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: "Binary Dreams",
@@ -34,13 +40,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${localTektur.variable} ${localBerkeley.variable} ${localOrbitron.variable} ${localPixel1.variable} ${localInter.variable}  ${localhandwritten.variable}`}
-      >
-        <AudioPlayer />
-        <Toaster />
-        {children}
-      </body>
+      <PHProvider>
+        <body
+          className={`${localTektur.variable} ${localBerkeley.variable} ${localOrbitron.variable} ${localPixel1.variable} ${localInter.variable}  ${localhandwritten.variable}`}
+        >
+          {" "}
+          <PostHogPageView />
+          <AudioPlayer />
+          <Toaster />
+          {children}
+        </body>
+      </PHProvider>
     </html>
   );
 }
