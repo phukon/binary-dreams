@@ -102,7 +102,7 @@ export default function Quote() {
       >
         {quote && (
           <div
-            className="text-xs w-20 md:w-full text-left md:text-center md:text-2xl text-white text-opacity-95"
+            className="text-base w-30 md:w-full text-left md:text-center md:text-2xl text-white text-opacity-95"
             style={{
               textShadow: neonGlowEnabled
                 ? getNeonGlowStyle(selectedNeonGlowStyle)

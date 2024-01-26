@@ -36,7 +36,7 @@ const Section = ({ head, desc, pic, value }: sectionProps) => {
                   </h1>
                   <div className="flex flex-col">
                     {" "}
-                    <p className="p-4 -mt-10 md:mt-10 font-semibold break-all md:h-auto min-h-[100px]">
+                    <p className="p-4 -mt-10 md:mt-10 --local-inter font-semibold break-all md:h-auto min-h-[100px]">
                       {limitTo120Characters(desc) + "... .."}
                     </p>
                     <div className="p-4 flex justify-evenly">
