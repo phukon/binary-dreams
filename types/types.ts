@@ -57,6 +57,13 @@ export const ImgData: ImageOption[] = [
     value: "arrival.jpg",
     label: "arrival.jpg",
   },
+  {
+    head: "Portal",
+    desc: "We messed up big time!",
+    src: "/pics/portal.jpg",
+    value: "portal.jpg",
+    label: "portal.jpg",
+  },
 ];
 
 export const draggableStyles: string[] = [

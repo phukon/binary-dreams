@@ -2,6 +2,7 @@ import { useCanvas, Position } from "@/context/CanvasContext";
 import Draggable from "react-draggable";
 import { useCallback, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import ProgressBar from "../ProgressBar";
 
 export default function Quote() {
   const {
@@ -26,6 +27,8 @@ export default function Quote() {
 
   // --------
 
+  const currDate = new Date();
+
   const [yearProgress, setYearProgress] = useState<number>(0);
 
   const calculateYearProgress = useCallback(() => {
@@ -34,7 +37,7 @@ export default function Quote() {
     const end = new Date(now.getFullYear() + 1, 0, 1); // End of this year
     const done =
       (now.getTime() - start.getTime()) / (end.getTime() - start.getTime());
-    const percent = (100.0 * done).toFixed(6);
+    const percent = (100.0 * done).toFixed(7);
     setYearProgress(parseFloat(percent));
   }, []);
 
@@ -99,7 +102,7 @@ export default function Quote() {
       >
         {quote && (
           <div
-            className="text-md md:text-2xl text-white text-opacity-95"
+            className="text-xs md:text-2xl text-white text-opacity-95"
             style={{
               textShadow: neonGlowEnabled
                 ? getNeonGlowStyle(selectedNeonGlowStyle)
@@ -110,11 +113,27 @@ export default function Quote() {
             {" "}
             {progress && (
               <div className="text-white flex flex-col">
-                <span className="text-md md:text-4xl">
-                  {yearProgress}%
+                {" "}
+                <span className="text-2xl md:text-5xl">
+                  {currDate.getFullYear()}
+                  <span className="text-xs">is</span>
+                </span>
+              <span className="mt-2 md:mt-10">
+                <ProgressBar
+                  completed={yearProgress}
+                  bgColor="#ffff"
+                  borderRadius=""
+                  isLabelVisible={false}
+                  baseBgColor="#00000099"
+                  labelColor=""
+                  transitionDuration=""
+                  maxCompleted={100}
+                /></span>
+                <span className="text-xs md:text-4xl">
+                  {yearProgress}
+                  {yearProgress.toString().length == 8 ? "0" : ""}%
                 </span>
                 complete
-                {/* <span>{yearProgress.toString().split(".")[1]} </span> */}
               </div>
             )}
             {quote}
