@@ -91,7 +91,7 @@ export default function Quote() {
     <Draggable onDrag={handleDrag} bounds="parent" defaultPosition={position}>
       <div
         className={cn(
-          "text-center z-10 absolute max-w-[500px] p-10 hover:border-1 hover:rounded-lg hover:cursor-move",
+          "text-center z-10 absolute max-w-[500px] p-5 hover:border-1 hover:rounded-lg hover:cursor-move",
           {
             "--local-pixel1": style === "pixel",
             "--local-tektur": style === "bold",
@@ -102,7 +102,7 @@ export default function Quote() {
       >
         {quote && (
           <div
-            className="text-xs md:text-2xl text-white text-opacity-95"
+            className="text-xs w-20 md:w-full text-left md:text-center md:text-2xl text-white text-opacity-95"
             style={{
               textShadow: neonGlowEnabled
                 ? getNeonGlowStyle(selectedNeonGlowStyle)
@@ -114,11 +114,11 @@ export default function Quote() {
             {progress && (
               <div className="text-white flex flex-col">
                 {" "}
-                <span className="text-2xl md:text-5xl">
+                <span className="text-2xl md:text-2xl">
                   {currDate.getFullYear()}
                   <span className="text-xs">is</span>
                 </span>
-              <span className="mt-2 md:mt-10">
+              <span className="mt-2 md:mt-5">
                 <ProgressBar
                   completed={yearProgress}
                   bgColor="#ffff"
@@ -129,7 +129,7 @@ export default function Quote() {
                   transitionDuration=""
                   maxCompleted={100}
                 /></span>
-                <span className="text-xs md:text-4xl">
+                <span className="text-xs md:text-2xl">
                   {yearProgress}
                   {yearProgress.toString().length == 8 ? "0" : ""}%
                 </span>
