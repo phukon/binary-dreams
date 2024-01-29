@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import {
   localTektur,
@@ -40,6 +41,7 @@ export default function RootLayout({
         <AudioPlayer />
         <Toaster />
         {children}
+        <Analytics />
       </body>
     </html>
   );
