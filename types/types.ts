@@ -120,6 +120,13 @@ export const ImgData: ImageOption[] = [
     value: "hangar.jpg",
     label: "hangar.jpg",
   },
+  {
+    head: "Mini Dyson",
+    desc: "The power source that powers the Asia-Pacific South. Built by the",
+    src: "/pics/mini-dyson.jpg",
+    value: "mini-dyson.jpg",
+    label: "mini-dyson.jpg",
+  },
 ];
 
 export const draggableStyles: string[] = [
