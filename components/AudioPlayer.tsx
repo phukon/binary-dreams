@@ -13,7 +13,7 @@ const AudioPlayer = () => {
 
       const audioElement = document.createElement("audio");
       audioElement.id = "audio_tag";
-      audioElement.src = "/music/fx.mp3";
+      audioElement.src = "https://d1g2o751bxy91o.cloudfront.net/fx.mp3";
       audioElement.loop = true;
       document.body.appendChild(audioElement);
       return audioElement;
